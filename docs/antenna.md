@@ -51,4 +51,4 @@ Nola Mesh: These antennas are okay when pointing stright up, but bended complely
 
 
 
-Some of the links on this page may be affiliate links, which help fund our community. These do not affect our opinion or the recommendations we give.
+*[Some of the links on this page may be affiliate links, which help fund our community at no additional cost to you. These do not affect our opinion or the recommendations we give.](transparency.md)*

@@ -29,17 +29,17 @@ The **P1** is $35 cheaper as it does not include batteries or GPS; you will need
 For those DIYing their own repeater or solar enclosures, here are some boards we recommend.
 
 #### Top Picks:
-* **RAK WisMesh:** Highly recommended for its power efficiency and small size.
-* **Heltec V4:** A more powerful alternative, for a slightly cheaper price.
+* **Heltec V4:** Our recommended board for repeater deployments using Meshcore
+* **RAK WisMesh:** Lower power but more efficient for Meshtastic deployments
 
 | Board | Strength | Trade-off | Buy-from |
 | :--- | :--- | :--- | :--- |
+| **Heltec V4** | Higher transmit power | Higher power consumption (Only for Meshtastic) | [Heltec Automation](https://heltec.org/project/wifi-lora-32-v4/),  [Amazon External Wifi Without Screen](https://amzn.to/48WPXWg), [Amazon With Screen](https://amzn.to/48YZfQb) 
 | **RAK WisMesh** | Power efficiency | Slightly lower TX power | [Rak Wireless](https://store.rokland.com/collections/rakwireless-products/products/rak-wireless-wisblock-meshtastic-starter-kit),  [Amazon](https://amzn.to/3MQtcun)
-| **Heltec V4** | Higher transmit power | Higher power consumption | [Heltec Automation](https://heltec.org/project/wifi-lora-32-v4/),  [Amazon External Wifi Without Screen](https://amzn.to/48WPXWg), [Amazon With Screen](https://amzn.to/48YZfQb) 
 | **Xio-SX1262** | Ultra-Small formfactor | poor price to preformance | [Seeedstudio](https://www.seeedstudio.com/Wio-SX1262-with-XIAO-ESP32S3-p-5982.html?sensecap_affiliate=Je7dGgm&referring_service=link) with 2% coupon 0YZSYDIW,  [Amazon](https://amzn.to/49t6qBy)
 
 
 
 ---
 
-*Some of the links on this page may be affiliate links, which help fund our community. These do not affect our opinion or the recommendations we give.*
+*[Some of the links on this page may be affiliate links, which help fund our community at no additional cost to you. These do not affect our opinion or the recommendations we give.](transparency.md)*
