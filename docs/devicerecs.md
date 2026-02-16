@@ -42,7 +42,7 @@ The Rak WisMesh board's are shown to have horrible QC, inconsistent performance,
 | :--- | :--- | :--- | :--- |
 | **Heltec V4** | Higher transmit power | Higher power consumption (Only for Meshtastic) | [Heltec Automation](https://heltec.org/project/wifi-lora-32-v4/),  [Amazon External Wifi Without Screen](https://amzn.to/48WPXWg), [Amazon With Screen](https://amzn.to/48YZfQb) 
 | **Heltec T114** | Lower power consumption | Lower transmit power | [Heltec Automation](https://heltec.org/project/mesh-node-t114/),  [Amazon](https://amzn.to/3Mr2YyX)
-| **Xio-SX1262** | Ultra-Small formfactor | poor price to preformance | [Seeedstudio](https://www.seeedstudio.com/Wio-SX1262-with-XIAO-ESP32S3-p-5982.html?sensecap_affiliate=Je7dGgm&referring_service=link) with 2% coupon 0YZSYDIW,  [Amazon](https://amzn.to/49t6qBy)
+| **Xio-SX1262** | Ultra-Small formfactor, Very price competitive | No connectors | [Seeedstudio](https://www.seeedstudio.com/Wio-SX1262-with-XIAO-ESP32S3-p-5982.html?sensecap_affiliate=Je7dGgm&referring_service=link) with 2% coupon 0YZSYDIW,  [Amazon](https://amzn.to/49t6qBy)
 
 
 
