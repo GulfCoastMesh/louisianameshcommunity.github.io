@@ -28,10 +28,10 @@ nav:
   - Hardware & Guides:
     - What Device should I buy?: devicerecs.md
     - What Antenna should I use?: antenna.md
-    - Standardized Diy Repeater Builds: diy-repeater-builds.md
+    - Our Standard repeater build: diy-repeater-builds.md
   - Setup Guides:
     - Setting up a Meshcore Companion: setting-up-meshcore-companion.md
-    - How to setup a Meshcore Repeater: meshcore-repeater-setup.md-
+    - How to setup a Meshcore Repeater: meshcore-repeater-setup.md
   - Community Transparency: transparency.md
 
 

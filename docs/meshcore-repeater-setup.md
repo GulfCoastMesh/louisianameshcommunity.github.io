@@ -32,7 +32,8 @@ This guide details the steps to set up your Meshcore Repeater device.
     * Set the **Name** and **Location** (Latitude/Longitude).
     * Set a **Guest password** (to let someone get telemetry).
     * Set a **New Admin password** (for you to login through the phone app and make changes to your repeater).
-    * **Radio settings** (Preset, Frequency, Bandwidth, etc.) must match your companion.
+    * **Radio settings** (Preset, Frequency, Bandwidth, etc.) must match your companion. We recommend our [frequency settings](freq-settings.md).
+
     ![Screenshot of Radio settings preset selection dropdown](img/repeater-preset-select.png)
     ![Screenshot of detailed Repeater Radio settings](img/repeater-radio-settings.png)
 6.  **Save and Send Advert:**

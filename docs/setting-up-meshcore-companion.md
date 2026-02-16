@@ -49,13 +49,17 @@ This guide details the steps to set up your Meshcore Companion device.
     * At the main screen, set your desired node name.
     * Set **GPS coordinates**, or click on the blue map icon to the right and click on location on map.
         > **Note:** Location is not required to be set and can be left blank.
-    * Click **CHOOSE PRESETS** and choose your region, or enter custom settings if your local mesh has any.
+    * Click **CHOOSE PRESETS** and choose your region, and enter our custom settings [listed here](freq-settings.md).
+
     ![Screenshot of Meshcore app Settings screen with Public Info and Radio Settings](img/companion-settings-screen.png)
 
 6.  **Finalize and Reboot:**
     * Once everything is set up, click the **CHECK mark** in upper right corner.
     * Scroll down and **REBOOT**.
     * Reconnect to app; Companion setup should be complete.
+
+7.  **Add our custom channels:**
+    * On the main screen, click **CHANNELS** on the bottom bar and add the channels listed in the [Channels](channels.md) section.
 
 ## Acknowledgments
 
