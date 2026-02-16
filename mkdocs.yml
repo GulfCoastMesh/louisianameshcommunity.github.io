@@ -22,11 +22,16 @@ theme:
 
 nav:
   - Home: index.md
-  - Meshcore Frequency's and Channels For Louisiana: freq-settings.md
-  - What Device should I buy?: devicerecs.md
-  - What Antenna should I use?: antenna.md
-  - Setting up a Meshcore Companion: setting-up-meshcore-companion.md
-  - How to setup a Meshcore Repeater: meshcore-repeater-setup.md
+  - Local Settings and Information:
+    - Meshcore Frequency's For Louisiana: freq-settings.md
+    - Meshcore Channel's In Louisiana: channels.md
+  - Hardware & Guides:
+    - What Device should I buy?: devicerecs.md
+    - What Antenna should I use?: antenna.md
+    - Standardized Diy Repeater Builds: diy-repeater-builds.md
+  - Setup Guides:
+    - Setting up a Meshcore Companion: setting-up-meshcore-companion.md
+    - How to setup a Meshcore Repeater: meshcore-repeater-setup.md-
   - Community Transparency: transparency.md
 
 

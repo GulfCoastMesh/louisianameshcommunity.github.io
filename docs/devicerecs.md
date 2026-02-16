@@ -30,12 +30,18 @@ For those DIYing their own repeater or solar enclosures, here are some boards we
 
 #### Top Picks:
 * **Heltec V4:** Our recommended board for repeater deployments using Meshcore
-* **RAK WisMesh:** Lower power but more efficient for Meshtastic deployments
+* **Heltec T114**: A more power efficient alternative, but with less output power. Perfect for Meshtastic.
+
+---
+
+The Rak WisMesh board's are shown to have horrible QC, inconsistent performance, and have been shown to fail in the field. They've now been removed from our recommendations and we'll stop recommending them in the future unless they improve.
+
+--- 
 
 | Board | Strength | Trade-off | Buy-from |
 | :--- | :--- | :--- | :--- |
 | **Heltec V4** | Higher transmit power | Higher power consumption (Only for Meshtastic) | [Heltec Automation](https://heltec.org/project/wifi-lora-32-v4/),  [Amazon External Wifi Without Screen](https://amzn.to/48WPXWg), [Amazon With Screen](https://amzn.to/48YZfQb) 
-| **RAK WisMesh** | Power efficiency | Slightly lower TX power | [Rak Wireless](https://store.rokland.com/collections/rakwireless-products/products/rak-wireless-wisblock-meshtastic-starter-kit),  [Amazon](https://amzn.to/3MQtcun)
+| **Heltec T114** | Lower power consumption | Lower transmit power | [Heltec Automation](https://heltec.org/project/mesh-node-t114/),  [Amazon](https://amzn.to/3Mr2YyX)
 | **Xio-SX1262** | Ultra-Small formfactor | poor price to preformance | [Seeedstudio](https://www.seeedstudio.com/Wio-SX1262-with-XIAO-ESP32S3-p-5982.html?sensecap_affiliate=Je7dGgm&referring_service=link) with 2% coupon 0YZSYDIW,  [Amazon](https://amzn.to/49t6qBy)
 
 

@@ -9,6 +9,8 @@
 
 ### How to switch to our Meshcore Frequency [Settings](freq-settings.md).
 
+### Channels we use in Louisiana for our network [here](channels.md).
+
 ### Shopping for your first Meshtastic/Meshcore device, or perhaps looking to pick up another? View our recommended devices [here](devicerecs.md).
 
 ### To learn which antenna you should use for your setup, view our antenna guide [here](antenna.md).

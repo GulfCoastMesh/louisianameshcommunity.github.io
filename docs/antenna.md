@@ -9,6 +9,9 @@
 #### Good: $50 
 [Rokland Backcountry N-Male Omni Antenna](https://store.rokland.com/products/10-dbi-backcountry-n-male-omni-outdoor-helium-915-mhz-antenna-48-for-rak-miner-2-nebra-indoor-bobcat-hotspots)
 
+#### Almost Better: $70
+[915mhz LoRa Antenna/meshtastic](https://amzn.to/45L4fr1)
+
 #### Better: $70 
 [Seeedstudio Fiberglass Antenna](https://www.seeedstudio.com/RF-Explorer-LoRa-Fiberglass-Antenna-Kit-902-928MHz-8dBi-1300mm-p-5278.html)
 
@@ -42,6 +45,9 @@
 
 #### [Cheap Ebay Whip Antenna](https://www.ebay.com/itm/196317210118) 
 RR: These were terriable, 2.7 at 910.
+
+#### [RAIGEN 8dBi Antenna](https://amzn.to/4qBGiKp)
+Grumpy: "I think these Raigen antennas are worse crap then the Alfa’s", Horrible preformance even with LOS.
 
 #### [Any Bending Antenna (0-90 degree)](https://amzn.to/48Nx1cz)
 Nola Mesh: These antennas are okay when pointing stright up, but bended complely changes the antennna profile.
