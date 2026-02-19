@@ -16,12 +16,6 @@ This channel is reserved for emergencies, `#emergency`, Please try to keep this 
 
 ---
 
-### Other Channels
-
-There are many other private channels that are a mix of request only, invite only, or for small groups of people.
-
----
-
 ### How to add a channel
 
 #### Bluetooth Clients (Mobile App)

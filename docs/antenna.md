@@ -9,8 +9,8 @@
 #### Good: $50 
 [Rokland Backcountry N-Male Omni Antenna](https://store.rokland.com/products/10-dbi-backcountry-n-male-omni-outdoor-helium-915-mhz-antenna-48-for-rak-miner-2-nebra-indoor-bobcat-hotspots)
 
-#### Almost Better: $70
-[915mhz LoRa Antenna/meshtastic](https://amzn.to/45L4fr1)
+#### Almost Better: $59
+[915mhz LoRa Antenna/meshtastic](https://amzn.to/4rVPg65)
 
 #### Better: $70 
 [Seeedstudio Fiberglass Antenna](https://www.seeedstudio.com/RF-Explorer-LoRa-Fiberglass-Antenna-Kit-902-928MHz-8dBi-1300mm-p-5278.html)

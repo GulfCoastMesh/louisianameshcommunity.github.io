@@ -12,9 +12,9 @@ With our rapid growth over the past few months, a few core contributors have put
 ### Power & Solar
 | Component | Description | Link |
 | :--- | :--- | :--- |
-| **Solar Panel** | 10 Watt Solar Panel | [Buy on Amazon](https://amzn.to/4rG3iIR) |
+| **Solar Panel** | 10 Watt Solar Panel | [Buy on Amazon](https://amzn.to/46bI2CHs) |
 | **Battery** | 10,000 mAh Li-Po Battery | [Buy on Amazon](https://amzn.to/3ObMsTZ) |
-| **MPPT Charge Controller** | Solar Charge Controller (Not required but recommended) | [Buy on Amazon](https://amzn.to/3ZGrXkH) |
+| **MPPT Charge Controller** | Solar Charge Controller (Not required but recommended) | [Buy on Amazon](https://amzn.to/3OnLSCC) |
 
 ### Enclosure & Hardware
 | Component | Description | Link |
@@ -25,8 +25,8 @@ With our rapid growth over the past few months, a few core contributors have put
 | **Cabling (N-Female)** | N-Female Pigtail | [Buy on Amazon](https://amzn.to/4c9jRZx) |
 
 ### Antenna's
-| Component | Description | Link |
 | :--- | :--- | :--- |
+| Component | Description | Link |
 | **Wifi Antenna** | RP-SMA Male Antenna | [Buy on Amazon](https://amzn.to/4aAARoK) |
 
 ### Refer to the [antenna's page](antenna.md) for 915MHz Antennas
