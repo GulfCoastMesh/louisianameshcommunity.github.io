@@ -4,14 +4,21 @@ As we build out our network of repeaters, we've noticed significant distance adv
 
 ---
 
+<div style="background-color: #f2c464; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+  <p style="font-weight: bold; color: white; text-align: center;">New Network Settings!</p>
+  <p style="color: white; text-align: center;">Make sure to update your network settings to match the new settings below</p>
+</div>
+
+---
+
 ## MeshCore Network Settings
 
 | Parameter | Setting |
 | :--- | :--- |
 | **Frequency** | `910.525 MHz` |
 | **Bandwidth** | `62.5 kHz` |
-| **Spreading Factor** | `11` |
-| **Coding Rate** | `7` |
+| **Spreading Factor** | `9` |
+| **Coding Rate** | `6` |
 
 ---
 
@@ -36,6 +43,6 @@ If your node is connected via USB to a computer:
 3. Manually override the following values:
    - `frequency_offset`: Set to reach `910.525`.
    - `bandwidth`: `62`
-   - `spread_factor`: `11`
-   - `coding_rate`: `7`
+   - `spread_factor`: `9`
+   - `coding_rate`: `6`
 4. Click **Apply Changes**.
