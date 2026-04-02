@@ -3,8 +3,7 @@ site_url: https://docs.louisianamesh.org/
 theme:
   name: material
   palette:
-
-      # Light Mode
+    # Light Mode
     - scheme: default
       toggle:
         icon: material/weather-night
@@ -23,21 +22,20 @@ theme:
 nav:
   - Home: index.md
   - Local Settings and Information:
-    - Meshcore Frequency's For Louisiana: freq-settings.md
-    - Meshcore Channel's In Louisiana: channels.md
+      - Meshcore Frequency's For Louisiana: freq-settings.md
+      - Meshcore Channel's In Louisiana: channels.md
   - Hardware & Guides:
-    - What Device should I buy?: devicerecs.md
-    - What Antenna should I use?: antenna.md
-    - Our Standard repeater build: diy-repeater-builds.md
+      - What Device should I buy?: devicerecs.md
+      - What Antenna should I use?: antenna.md
+      - Our Standard repeater build: diy-repeater-builds.md
   - Setup Guides:
-    - Setting up a Meshcore Companion: setting-up-meshcore-companion.md
-    - How to setup a Meshcore Repeater: meshcore-repeater-setup.md
+      - Setting up a Meshcore Companion: setting-up-meshcore-companion.md
+      - How to setup a Meshcore Repeater: meshcore-repeater-setup.md
+  - Tips & Tricks:
+      - Estimate coverage with Meshmapper: estimate-coverage-with-meshmapper.md
   - Community Transparency: transparency.md
 
-
 extra:
-  
-
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/LouisianaMeshCommunity
