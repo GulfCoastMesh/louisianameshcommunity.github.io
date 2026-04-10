@@ -32,7 +32,6 @@ nav:
       - Setting up a Meshcore Companion: setting-up-meshcore-companion.md
       - How to setup a Meshcore Repeater: meshcore-repeater-setup.md
   - Tips & Tricks:
-      - How to change repeater public key: change-repeater-public-key.md
       - Estimate coverage with Meshmapper: estimate-coverage-with-meshmapper.md
   - Community Transparency: transparency.md
 
