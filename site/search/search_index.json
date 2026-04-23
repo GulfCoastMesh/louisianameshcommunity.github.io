@@ -1,1 +1,256 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"],"fields":{"title":{"boost":1000.0},"text":{"boost":1.0},"tags":{"boost":1000000.0}}},"docs":[{"location":"","title":"Louisiana Mesh Community Docs","text":""},{"location":"#welcome-to-the-louisiana-mesh-community-docs-a-curated-collection-of-resources-for-the-louisiana-mesh-community-and-beyond","title":"Welcome to the Louisiana Mesh Community Docs: a curated collection of resources for the Louisiana Mesh community and beyond.","text":""},{"location":"#join-our-discord-for-real-time-chats-and-our-monday-weekly-voice-meeting-here","title":"Join our Discord for real time chats and our monday weekly voice meeting here.","text":""},{"location":"#how-to-switch-to-our-meshcore-frequency-settings","title":"How to switch to our Meshcore Frequency Settings.","text":""},{"location":"#shopping-for-your-first-meshtasticmeshcore-device-or-perhaps-looking-to-pick-up-another-view-our-recommended-devices-here","title":"Shopping for your first Meshtastic/Meshcore device, or perhaps looking to pick up another? View our recommended devices here.","text":""},{"location":"#to-learn-which-antenna-you-should-use-for-your-setup-view-our-antenna-guide-here","title":"To learn which antenna you should use for your setup, view our antenna guide here.","text":""},{"location":"#if-you-are-interested-in-how-to-set-up-a-meshcore-device-for-daily-carry-check-out-our-guide-for-setting-up-a-meshcore-companion","title":"If you are interested in how to set up a Meshcore device for daily carry, check out our guide for setting up a Meshcore companion.","text":""},{"location":"#do-you-have-a-device-youd-like-to-use-to-help-build-our-meshcore-repeater-network-check-out-our-setup-guide-here","title":"Do you have a device you'd like to use to help build our Meshcore repeater network? Check out our setup guide here.","text":""},{"location":"#thank-you-for-helping-build-the-louisiana-mesh-community","title":"Thank you for helping build the Louisiana Mesh Community.","text":""},{"location":"antenna/","title":"What antenna should I use?","text":""},{"location":"antenna/#4-basic-recommendedations-for-repeaters","title":"4 Basic Recommendedations (For Repeaters)","text":""},{"location":"antenna/#good-small-18","title":"Good Small: 18$","text":"<p>ALFA Network Omni</p>"},{"location":"antenna/#good-50","title":"Good: $50","text":"<p>Rokland Backcountry N-Male Omni Antenna</p>"},{"location":"antenna/#better-70","title":"Better: $70","text":"<p>Seeedstudio Fiberglass Antenna</p>"},{"location":"antenna/#best-150","title":"Best: $150","text":"<p>It's a diamond, if your into ham; yknow what it is</p>"},{"location":"antenna/#handheld-antenna-recommendedations","title":"Handheld Antenna Recommendedations","text":""},{"location":"antenna/#heltecs-sma-6","title":"Heltec's SMA: 6$","text":"<p>For a decent, cheap antenna, handheld antenna, it works</p>"},{"location":"antenna/#muzi-works-13","title":"Muzi Works: 13$","text":"<p>915mhz Whip, These are good but seem to have some varaition from each antenna.</p>"},{"location":"antenna/#repeater-antenna-recommendedations","title":"Repeater Antenna Recommendedations","text":""},{"location":"antenna/#eifgur-appears-to-be-a-rokland-knokeoff-44","title":"\"Eifgur\" (Appears to be a Rokland knokeoff): 44$","text":"<p>Almost identical preformance to the Rokland for 10$ less and free shipping with prime.</p>"},{"location":"antenna/#alfa-knokeoff-12","title":"ALFA Knokeoff: 12$","text":"<p>Simlar prefomance to the ALFA for 5$ less, Good for hanging/less then legal nodes</p>"},{"location":"antenna/#do-not-buy","title":"Do Not Buy:","text":""},{"location":"antenna/#cheap-ebay-whip-antenna","title":"Cheap Ebay Whip Antenna","text":"<p>RR: These were terriable, 2.7 at 910.</p>"},{"location":"antenna/#any-bending-antenna-0-90-degree","title":"Any Bending Antenna (0-90 degree)","text":"<p>Nola Mesh: These antennas are okay when pointing stright up, but bended complely changes the antennna profile.</p> <p>Some of the links on this page may be affiliate links, which help fund our community. These do not affect our opinion or the recommendations we give.</p>"},{"location":"devicerecs/","title":"What Device Should I Buy?","text":""},{"location":"devicerecs/#personal-node-recommendations","title":"Personal Node Recommendations","text":""},{"location":"devicerecs/#best-daily-carry-edc","title":"Best Daily Carry (EDC)","text":"<p>If you are looking for a reliable, rugged, and water-resistant node with a 5-day battery life, the T1000-E from Seeed Studio is a great choice. You can purchase it directly from Seeed Studio with 5% coupon K7ABUUV9 or on Amazon.</p>"},{"location":"devicerecs/#our-recommendation-list","title":"Our Recommendation List:","text":"Board Strength Trade-off Buy-from T1000-E Durability &amp; Long Battery Life No display, Limited Expandbility Seeed Studio,  Amazon T-Deck-Plus Built-in Keyboard &amp; Large Display Poor Battery Life, Large Formfactor, High Price Lilygo,  Amazon Wio Tracker L1 Pro Durability, Joystick Keyboard (With Ranger Firmware), Great Battery Life Larger Then T1000-E Without Water Resistance Seeed Studio,  Amazon MeshPocket Works As A Magsafe Battery Bank &amp; E-Ink Display Quite Fragile Heltec Automation,  Amazon"},{"location":"devicerecs/#solar-node-recommendations","title":"Solar Node Recommendations","text":""},{"location":"devicerecs/#pre-made-solar-nodes","title":"Pre-made Solar Nodes","text":"<p>If you prefer a \"plug-and-play\" solution that is weather-ready out of the box, the SenseCAP P1 or P1 Pro from Seeed Studio are excellent choices. These units integrate the solar controller and enclosure, saving you significant assembly time. you can recieve a 5% discount by code S9ZRMA1X at checkout.</p> <p>The P1 is $35 cheaper as it does not include batteries or GPS; you will need to supply four 18650 batteries yourself. By comparison, the P1 Pro includes everything you need to get started, including an integrated GPS module.</p>"},{"location":"devicerecs/#repeater-nodes-to-build","title":"Repeater Nodes to Build","text":"<p>For those DIYing their own repeater or solar enclosures, here are some boards we recommend.</p>"},{"location":"devicerecs/#top-picks","title":"Top Picks:","text":"<ul> <li>RAK WisMesh: Highly recommended for its power efficiency and small size.</li> <li>Heltec V4: A more powerful alternative, for a slightly cheaper price.</li> </ul> Board Strength Trade-off Buy-from RAK WisMesh Power efficiency Slightly lower TX power Rak Wireless,  Amazon Heltec V4 Higher transmit power Higher power consumption Heltec Automation,  Amazon External Wifi Without Screen, Amazon With Screen Xio-SX1262 Ultra-Small formfactor poor price to preformance Seeedstudio with 2% coupon 0YZSYDIW,  Amazon <p>Some of the links on this page may be affiliate links, which help fund our community. These do not affect our opinion or the recommendations we give.</p>"},{"location":"freq-settings/","title":"Frequency Settings for Louisiana's Meshcore","text":"<p>As we build out our network of repeaters, we've noticed significant distance advantages by modifying frequency settings to help interconnect Louisiana. To connect to our backbone, we recommend switching your devices to the settings outlined below.</p>"},{"location":"freq-settings/#meshcore-network-settings","title":"MeshCore Network Settings","text":"Parameter Setting Frequency <code>910.525 MHz</code> Bandwidth <code>62.5 kHz</code> Spreading Factor <code>11</code> Coding Rate <code>7</code>"},{"location":"freq-settings/#how-to-update-your-settings","title":"How to Update Your Settings","text":"<p>Depending on how you access your Meshcore node, follow the instructions below to apply the new frequency parameters.</p>"},{"location":"freq-settings/#bluetooth-clients-mobile-app","title":"Bluetooth Clients (Mobile App)","text":"<p>If you are using the mobile app on Android or iOS: </p> <ol> <li>Connect to your node via Bluetooth.</li> <li>Click the Gear Icon at the top right.</li> <li>Scroll down to Radio Settings.</li> <li>Enter the frequency <code>910.525</code> and adjust the Bandwidth, SF, and CR to match the table above.</li> <li>Tap Send/Save to reboot the node with new settings.</li> </ol>"},{"location":"freq-settings/#wired-clients-webui","title":"Wired Clients (WebUI)","text":"<p>If your node is connected via USB to a computer:</p> <ol> <li>Open the Meshcore Config Tool.</li> <li>Go to the Radio Config tab.</li> <li>Manually override the following values:</li> <li><code>frequency_offset</code>: Set to reach <code>910.525</code>.</li> <li><code>bandwidth</code>: <code>62</code></li> <li><code>spread_factor</code>: <code>11</code></li> <li><code>coding_rate</code>: <code>7</code></li> <li>Click Apply Changes.</li> </ol>"},{"location":"meshcore-repeater-setup/","title":"Setting Up a Meshcore Repeater","text":"<p>This guide details the steps to set up your Meshcore Repeater device.</p>"},{"location":"meshcore-repeater-setup/#step-1-prepare-the-repeater","title":"Step 1 \u2013 Prepare the Repeater","text":"<ol> <li>Connect Antenna: Verify that an antenna is connected to your unit before continuing.</li> <li>Access the WebFlash App: Go to https://flasher.meshcore.co.uk.</li> <li>Choose Role: Choose your device from the list and select REPEATER.</li> <li>Connect Radio: Connect the radio via USB.     </li> <li>Enter DFU Mode:<ul> <li>Select ENTER DFU MODE (labeled #1).</li> <li>A pop-up will ask which device; select it from the menu, hit OK. </li> </ul> </li> <li>Flash the Firmware:<ul> <li>Once in DFU mode, select ERASE FLASH (labeled #2).</li> <li>Once complete, select FLASH (labeled #3).</li> <li>The pop-up will appear again; select the radio again. </li> </ul> </li> </ol>"},{"location":"meshcore-repeater-setup/#step-2-first-run-configuration","title":"Step 2 \u2013 First Run Configuration","text":"<ol> <li>Configure via USB: After flashing is complete, click CONFIGURE VIA USB.     </li> <li>Connect: Select CONNECT on the pop-up window.     </li> <li>Select Device: Device Selection will pop up again; you should select your radio.</li> <li>Admin Section: Once you do so, you will be into the admin section of the radio.     </li> <li>Make Settings Match Companion:<ul> <li>Set the Name and Location (Latitude/Longitude).</li> <li>Set a Guest password (to let someone get telemetry).</li> <li>Set a New Admin password (for you to login through the phone app and make changes to your repeater).</li> <li>Radio settings (Preset, Frequency, Bandwidth, etc.) must match your companion.  </li> </ul> </li> <li>Save and Send Advert:<ul> <li>SAVE the settings.</li> <li>Scroll back up &amp; click SEND ADVERT. </li> <li>The repeater should now show up in your contacts on the companion phone app.</li> </ul> </li> </ol> <p>Note: The CONFIGURATION WEB APP can be used when the node is connected and any changes need to be made. It can be found here: </p>"},{"location":"meshcore-repeater-setup/#step-3-verify-remote-management","title":"Step 3 \u2013 Verify Remote Management","text":"<ol> <li>Manage via Phone App: Now you can manage your repeater through the phone app.</li> <li>Access Repeater in App:<ul> <li>Connect to the Meshcore app.</li> <li>In contacts, click on the ANTENNA TOWER icon next to the repeater name.</li> <li>If the repeater doesn\u2019t show up: Click TOOLS &gt; DISCOVER NEARBY NODES &gt; REPEATERS, and it will find any within direct reach, you can add them in. </li> </ul> </li> <li>Login to Repeater Admin:<ul> <li>Wait for the 10-second countdown (or help support the developers), click CONTINUE.</li> <li>Enter the private password you created, LOGIN. </li> </ul> </li> <li>Status Page: The Status page on loading will require the refresh. In order to minimize network usage, only what is selected to be shown is updated.     </li> <li>Send Repeater Advert via App: To send out repeater advert, click SETTINGS &gt; ADVERT.     </li> <li>Sync Clock (If Needed): Some units may require a time-sync after restarts, to do this goto SETTINGS &gt; Sync Clock.     </li> </ol>"},{"location":"meshcore-repeater-setup/#step-4-deploy-your-repeater","title":"Step 4 \u2013 Deploy Your Repeater!","text":""},{"location":"meshcore-repeater-setup/#acknowledgments","title":"Acknowledgments","text":""},{"location":"meshcore-repeater-setup/#the-following-guide-was-created-by-ferret-from-west-coast-mesh-and-rr-from-the-louisiana-mesh-community-thank-you-to-these-contributors-for-their-work-on-this-guide","title":"The following guide was created by Ferret from West Coast Mesh and rr from the Louisiana Mesh community. Thank you to these contributors for their work on this guide ^~^","text":""},{"location":"setting-up-meshcore-companion/","title":"Setting Up a Meshcore Companion Device","text":"<p>This guide details the steps to set up your Meshcore Companion device.</p>"},{"location":"setting-up-meshcore-companion/#prerequisites","title":"Prerequisites","text":"<ul> <li>WebFlash App: The WebFlash app for all units is available at: https://flasher.meshcore.co.uk.</li> <li>Browser Requirement: This process requires a Chromium-based browser capable of accessing USB/Serial Devices.</li> </ul>"},{"location":"setting-up-meshcore-companion/#step-1-get-companion-ready","title":"Step 1 \u2013 Get Companion Ready","text":"<ol> <li>Access the WebFlash App: Go to the WebFlash app link.</li> <li>Select Your Device: Search for and select your device from the list.</li> <li>Choose Role: Click on your device, then select COMPANION BLUETOOTH.     </li> <li> <p>Flash the Firmware:</p> <ul> <li>Choose the desired firmware.</li> <li>Click ENTER DFU MODE (labeled #1).     &gt; Troubleshooting DFU Mode:     &gt; * If you have issues getting into DFU mode, most devices can be manually entered by double-tapping the reset button.     &gt; * For Heltec v3 &amp; v4 devices, hold down the usr button, press the reset button while still holding usr, release reset, then release usr.</li> <li>Click ERASE FLASH.</li> <li>Click FLASH (labeled #2). </li> </ul> </li> <li> <p>Install the Mobile App: Go to your device\u2019s app store, search for Meshcore, and install the App.</p> </li> </ol>"},{"location":"setting-up-meshcore-companion/#step-2-connect-to-your-radio","title":"Step 2 \u2013 Connect to Your Radio","text":"<ol> <li>Open the Meshcore App: After flashing, open the Meshcore app on your phone, tablet, etc..</li> <li> <p>Connect via Bluetooth: Connect to your phone with Bluetooth.</p> </li> <li> <p>Default Bluetooth PIN Information:</p> <ul> <li>If your radio has a screen: The current PIN will show on the screen of your companion, it is randomly generated each time you restart the device.</li> <li>If your radio doesn\u2019t have a display: The default is 123456. Change this PIN first.</li> <li>If it is paired already, your previous session will remain linked.</li> <li>You can still change to a custom PIN if you desire.</li> </ul> </li> <li> <p>Changing the Bluetooth PIN (Optional/Recommended):</p> <ul> <li>Once in the app, click the GEAR in the upper right corner, and go to BLUETOOTH SETTINGS.</li> <li>Click CUSTOM.</li> <li>Enter your desired 6-digit PIN.</li> <li>Click the CHECK MARK on the top right to save. </li> <li>Reboot the device and reconnect to the app with the new PIN.</li> <li>Click on GEAR to get back to settings.</li> </ul> </li> <li> <p>Set Public Information and Radio Settings:</p> <ul> <li>At the main screen, set your desired node name.</li> <li>Set GPS coordinates, or click on the blue map icon to the right and click on location on map.     &gt; Note: Location is not required to be set and can be left blank.</li> <li>Click CHOOSE PRESETS and choose your region, or enter custom settings if your local mesh has any. </li> </ul> </li> <li> <p>Finalize and Reboot:</p> <ul> <li>Once everything is set up, click the CHECK mark in upper right corner.</li> <li>Scroll down and REBOOT.</li> <li>Reconnect to app; Companion setup should be complete.</li> </ul> </li> </ol>"},{"location":"setting-up-meshcore-companion/#acknowledgments","title":"Acknowledgments","text":""},{"location":"setting-up-meshcore-companion/#the-following-guide-was-created-by-ferret-from-west-coast-mesh-and-rr-from-the-louisiana-mesh-community-thank-you-to-these-contributors-for-their-work-on-this-guide","title":"The following guide was created by Ferret from West Coast Mesh and rr from the Louisiana Mesh community. Thank you to these contributors for their work on this guide ^~^","text":""}]}
+{
+  "config": {
+    "lang": ["en"],
+    "separator": "[\\s\\-]+",
+    "pipeline": ["stopWordFilter"],
+    "fields": {
+      "title": { "boost": 1000.0 },
+      "text": { "boost": 1.0 },
+      "tags": { "boost": 1000000.0 }
+    }
+  },
+  "docs": [
+    { "location": "", "title": "Louisiana Mesh Community Docs", "text": "" },
+    {
+      "location": "#welcome-to-the-louisiana-mesh-community-docs-a-curated-collection-of-resources-for-the-louisiana-mesh-community-and-beyond",
+      "title": "Welcome to the Louisiana Mesh Community Docs: a curated collection of resources for the Louisiana Mesh community and beyond.",
+      "text": ""
+    },
+    {
+      "location": "#join-our-discord-for-real-time-chats-and-our-monday-weekly-voice-meeting-here",
+      "title": "Join our Discord for real time chats and our monday weekly voice meeting here.",
+      "text": ""
+    },
+    {
+      "location": "#how-to-switch-to-our-meshcore-frequency-settings",
+      "title": "How to switch to our Meshcore Frequency Settings.",
+      "text": ""
+    },
+    {
+      "location": "#shopping-for-your-first-meshtasticmeshcore-device-or-perhaps-looking-to-pick-up-another-view-our-recommended-devices-here",
+      "title": "Shopping for your first Meshtastic/Meshcore device, or perhaps looking to pick up another? View our recommended devices here.",
+      "text": ""
+    },
+    {
+      "location": "#to-learn-which-antenna-you-should-use-for-your-setup-view-our-antenna-guide-here",
+      "title": "To learn which antenna you should use for your setup, view our antenna guide here.",
+      "text": ""
+    },
+    {
+      "location": "#if-you-are-interested-in-how-to-set-up-a-meshcore-device-for-daily-carry-check-out-our-guide-for-setting-up-a-meshcore-companion",
+      "title": "If you are interested in how to set up a Meshcore device for daily carry, check out our guide for setting up a Meshcore companion.",
+      "text": ""
+    },
+    {
+      "location": "#do-you-have-a-device-youd-like-to-use-to-help-build-our-meshcore-repeater-network-check-out-our-setup-guide-here",
+      "title": "Do you have a device you'd like to use to help build our Meshcore repeater network? Check out our setup guide here.",
+      "text": ""
+    },
+    {
+      "location": "#thank-you-for-helping-build-the-louisiana-mesh-community",
+      "title": "Thank you for helping build the Louisiana Mesh Community.",
+      "text": ""
+    },
+    {
+      "location": "antenna/",
+      "title": "What antenna should I use?",
+      "text": ""
+    },
+    {
+      "location": "antenna/#4-basic-recommendedations-for-repeaters",
+      "title": "4 Basic Recommendedations (For Repeaters)",
+      "text": ""
+    },
+    {
+      "location": "antenna/#good-small-18",
+      "title": "Good Small: 18$",
+      "text": "<p>ALFA Network Omni</p>"
+    },
+    {
+      "location": "antenna/#good-50",
+      "title": "Good: $50",
+      "text": "<p>Rokland Backcountry N-Male Omni Antenna</p>"
+    },
+    {
+      "location": "antenna/#better-70",
+      "title": "Better: $70",
+      "text": "<p>Seeedstudio Fiberglass Antenna</p>"
+    },
+    {
+      "location": "antenna/#best-150",
+      "title": "Best: $150",
+      "text": "<p>It's a diamond, if your into ham; yknow what it is</p>"
+    },
+    {
+      "location": "antenna/#handheld-antenna-recommendedations",
+      "title": "Handheld Antenna Recommendedations",
+      "text": ""
+    },
+    {
+      "location": "antenna/#heltecs-sma-6",
+      "title": "Heltec's SMA: 6$",
+      "text": "<p>For a decent, cheap antenna, handheld antenna, it works</p>"
+    },
+    {
+      "location": "antenna/#muzi-works-13",
+      "title": "Muzi Works: 13$",
+      "text": "<p>915mhz Whip, These are good but seem to have some varaition from each antenna.</p>"
+    },
+    {
+      "location": "antenna/#repeater-antenna-recommendedations",
+      "title": "Repeater Antenna Recommendedations",
+      "text": ""
+    },
+    {
+      "location": "antenna/#eifgur-appears-to-be-a-rokland-knokeoff-44",
+      "title": "\"Eifgur\" (Appears to be a Rokland knokeoff): 44$",
+      "text": "<p>Almost identical preformance to the Rokland for 10$ less and free shipping with prime.</p>"
+    },
+    {
+      "location": "antenna/#alfa-knokeoff-12",
+      "title": "ALFA Knokeoff: 12$",
+      "text": "<p>Simlar prefomance to the ALFA for 5$ less, Good for hanging/less then legal nodes</p>"
+    },
+    { "location": "antenna/#do-not-buy", "title": "Do Not Buy:", "text": "" },
+    {
+      "location": "antenna/#cheap-ebay-whip-antenna",
+      "title": "Cheap Ebay Whip Antenna",
+      "text": "<p>RR: These were terriable, 2.7 at 910.</p>"
+    },
+    {
+      "location": "antenna/#any-bending-antenna-0-90-degree",
+      "title": "Any Bending Antenna (0-90 degree)",
+      "text": "<p>Nola Mesh: These antennas are okay when pointing stright up, but bended complely changes the antennna profile.</p> <p>Some of the links on this page may be affiliate links, which help fund our community. These do not affect our opinion or the recommendations we give.</p>"
+    },
+    {
+      "location": "devicerecs/",
+      "title": "What Device Should I Buy?",
+      "text": ""
+    },
+    {
+      "location": "devicerecs/#personal-node-recommendations",
+      "title": "Personal Node Recommendations",
+      "text": ""
+    },
+    {
+      "location": "devicerecs/#best-daily-carry-edc",
+      "title": "Best Daily Carry (EDC)",
+      "text": "<p>If you are looking for a reliable, rugged, and water-resistant node with a 5-day battery life, the T1000-E from Seeed Studio is a great choice. You can purchase it directly from Seeed Studio with 5% coupon K7ABUUV9 or on Amazon.</p>"
+    },
+    {
+      "location": "devicerecs/#our-recommendation-list",
+      "title": "Our Recommendation List:",
+      "text": "Board Strength Trade-off Buy-from T1000-E Durability &amp; Long Battery Life No display, Limited Expandbility Seeed Studio,  Amazon T-Deck-Plus Built-in Keyboard &amp; Large Display Poor Battery Life, Large Formfactor, High Price Lilygo,  Amazon Wio Tracker L1 Pro Durability, Joystick Keyboard (With Ranger Firmware), Great Battery Life Larger Then T1000-E Without Water Resistance Seeed Studio,  Amazon MeshPocket Works As A Magsafe Battery Bank &amp; E-Ink Display Quite Fragile Heltec Automation,  Amazon"
+    },
+    {
+      "location": "devicerecs/#solar-node-recommendations",
+      "title": "Solar Node Recommendations",
+      "text": ""
+    },
+    {
+      "location": "devicerecs/#pre-made-solar-nodes",
+      "title": "Pre-made Solar Nodes",
+      "text": "<p>If you prefer a \"plug-and-play\" solution that is weather-ready out of the box, the SenseCAP P1 or P1 Pro from Seeed Studio are excellent choices. These units integrate the solar controller and enclosure, saving you significant assembly time. you can recieve a 5% discount by code S9ZRMA1X at checkout.</p> <p>The P1 is $35 cheaper as it does not include batteries or GPS; you will need to supply four 18650 batteries yourself. By comparison, the P1 Pro includes everything you need to get started, including an integrated GPS module.</p>"
+    },
+    {
+      "location": "devicerecs/#repeater-nodes-to-build",
+      "title": "Repeater Nodes to Build",
+      "text": "<p>For those DIYing their own repeater or solar enclosures, here are some boards we recommend.</p>"
+    },
+    {
+      "location": "devicerecs/#top-picks",
+      "title": "Top Picks:",
+      "text": "<ul> <li>RAK WisMesh: Highly recommended for its power efficiency and small size.</li> <li>Heltec V4: A more powerful alternative, for a slightly cheaper price.</li> </ul> Board Strength Trade-off Buy-from RAK WisMesh Power efficiency Slightly lower TX power Rak Wireless,  Amazon Heltec V4 Higher transmit power Higher power consumption Heltec Automation,  Amazon External Wifi Without Screen, Amazon With Screen Xio-SX1262 Ultra-Small formfactor poor price to preformance Seeedstudio with 2% coupon 0YZSYDIW,  Amazon <p>Some of the links on this page may be affiliate links, which help fund our community. These do not affect our opinion or the recommendations we give.</p>"
+    },
+    {
+      "location": "freq-settings/",
+      "title": "Frequency Settings for Louisiana's Meshcore",
+      "text": "<p>As we build out our network of repeaters, we've noticed significant distance advantages by modifying frequency settings to help interconnect Louisiana. To connect to our backbone, we recommend switching your devices to the settings outlined below.</p>"
+    },
+    {
+      "location": "freq-settings/#meshcore-network-settings",
+      "title": "MeshCore Network Settings",
+      "text": "Parameter Setting Frequency <code>910.525 MHz</code> Bandwidth <code>62.5 kHz</code> Spreading Factor <code>11</code> Coding Rate <code>7</code>"
+    },
+    {
+      "location": "freq-settings/#how-to-update-your-settings",
+      "title": "How to Update Your Settings",
+      "text": "<p>Depending on how you access your Meshcore node, follow the instructions below to apply the new frequency parameters.</p>"
+    },
+    {
+      "location": "freq-settings/#bluetooth-clients-mobile-app",
+      "title": "Bluetooth Clients (Mobile App)",
+      "text": "<p>If you are using the mobile app on Android or iOS: </p> <ol> <li>Connect to your node via Bluetooth.</li> <li>Click the Gear Icon at the top right.</li> <li>Scroll down to Radio Settings.</li> <li>Enter the frequency <code>910.525</code> and adjust the Bandwidth, SF, and CR to match the table above.</li> <li>Tap Send/Save to reboot the node with new settings.</li> </ol>"
+    },
+    {
+      "location": "freq-settings/#wired-clients-webui",
+      "title": "Wired Clients (WebUI)",
+      "text": "<p>If your node is connected via USB to a computer:</p> <ol> <li>Open the Meshcore Config Tool.</li> <li>Go to the Radio Config tab.</li> <li>Manually override the following values:</li> <li><code>frequency_offset</code>: Set to reach <code>910.525</code>.</li> <li><code>bandwidth</code>: <code>62</code></li> <li><code>spread_factor</code>: <code>11</code></li> <li><code>coding_rate</code>: <code>7</code></li> <li>Click Apply Changes.</li> </ol>"
+    },
+    {
+      "location": "meshcore-repeater-setup/",
+      "title": "Setting Up a Meshcore Repeater",
+      "text": "<p>This guide details the steps to set up your Meshcore Repeater device.</p>"
+    },
+    {
+      "location": "meshcore-repeater-setup/#step-1-prepare-the-repeater",
+      "title": "Step 1 \u2013 Prepare the Repeater",
+      "text": "<ol> <li>Connect Antenna: Verify that an antenna is connected to your unit before continuing.</li> <li>Access the WebFlash App: Go to https://meshcore.io/flasher.</li> <li>Choose Role: Choose your device from the list and select REPEATER.</li> <li>Connect Radio: Connect the radio via USB.     </li> <li>Enter DFU Mode:<ul> <li>Select ENTER DFU MODE (labeled #1).</li> <li>A pop-up will ask which device; select it from the menu, hit OK. </li> </ul> </li> <li>Flash the Firmware:<ul> <li>Once in DFU mode, select ERASE FLASH (labeled #2).</li> <li>Once complete, select FLASH (labeled #3).</li> <li>The pop-up will appear again; select the radio again. </li> </ul> </li> </ol>"
+    },
+    {
+      "location": "meshcore-repeater-setup/#step-2-first-run-configuration",
+      "title": "Step 2 \u2013 First Run Configuration",
+      "text": "<ol> <li>Configure via USB: After flashing is complete, click CONFIGURE VIA USB.     </li> <li>Connect: Select CONNECT on the pop-up window.     </li> <li>Select Device: Device Selection will pop up again; you should select your radio.</li> <li>Admin Section: Once you do so, you will be into the admin section of the radio.     </li> <li>Make Settings Match Companion:<ul> <li>Set the Name and Location (Latitude/Longitude).</li> <li>Set a Guest password (to let someone get telemetry).</li> <li>Set a New Admin password (for you to login through the phone app and make changes to your repeater).</li> <li>Radio settings (Preset, Frequency, Bandwidth, etc.) must match your companion.  </li> </ul> </li> <li>Save and Send Advert:<ul> <li>SAVE the settings.</li> <li>Scroll back up &amp; click SEND ADVERT. </li> <li>The repeater should now show up in your contacts on the companion phone app.</li> </ul> </li> </ol> <p>Note: The CONFIGURATION WEB APP can be used when the node is connected and any changes need to be made. It can be found here: </p>"
+    },
+    {
+      "location": "meshcore-repeater-setup/#step-3-verify-remote-management",
+      "title": "Step 3 \u2013 Verify Remote Management",
+      "text": "<ol> <li>Manage via Phone App: Now you can manage your repeater through the phone app.</li> <li>Access Repeater in App:<ul> <li>Connect to the Meshcore app.</li> <li>In contacts, click on the ANTENNA TOWER icon next to the repeater name.</li> <li>If the repeater doesn\u2019t show up: Click TOOLS &gt; DISCOVER NEARBY NODES &gt; REPEATERS, and it will find any within direct reach, you can add them in. </li> </ul> </li> <li>Login to Repeater Admin:<ul> <li>Wait for the 10-second countdown (or help support the developers), click CONTINUE.</li> <li>Enter the private password you created, LOGIN. </li> </ul> </li> <li>Status Page: The Status page on loading will require the refresh. In order to minimize network usage, only what is selected to be shown is updated.     </li> <li>Send Repeater Advert via App: To send out repeater advert, click SETTINGS &gt; ADVERT.     </li> <li>Sync Clock (If Needed): Some units may require a time-sync after restarts, to do this goto SETTINGS &gt; Sync Clock.     </li> </ol>"
+    },
+    {
+      "location": "meshcore-repeater-setup/#step-4-deploy-your-repeater",
+      "title": "Step 4 \u2013 Deploy Your Repeater!",
+      "text": ""
+    },
+    {
+      "location": "meshcore-repeater-setup/#acknowledgments",
+      "title": "Acknowledgments",
+      "text": ""
+    },
+    {
+      "location": "meshcore-repeater-setup/#the-following-guide-was-created-by-ferret-from-west-coast-mesh-and-rr-from-the-louisiana-mesh-community-thank-you-to-these-contributors-for-their-work-on-this-guide",
+      "title": "The following guide was created by Ferret from West Coast Mesh and rr from the Louisiana Mesh community. Thank you to these contributors for their work on this guide ^~^",
+      "text": ""
+    },
+    {
+      "location": "setting-up-meshcore-companion/",
+      "title": "Setting Up a Meshcore Companion Device",
+      "text": "<p>This guide details the steps to set up your Meshcore Companion device.</p>"
+    },
+    {
+      "location": "setting-up-meshcore-companion/#prerequisites",
+      "title": "Prerequisites",
+      "text": "<ul> <li>WebFlash App: The WebFlash app for all units is available at: https://meshcore.io/flasher.</li> <li>Browser Requirement: This process requires a Chromium-based browser capable of accessing USB/Serial Devices.</li> </ul>"
+    },
+    {
+      "location": "setting-up-meshcore-companion/#step-1-get-companion-ready",
+      "title": "Step 1 \u2013 Get Companion Ready",
+      "text": "<ol> <li>Access the WebFlash App: Go to the WebFlash app link.</li> <li>Select Your Device: Search for and select your device from the list.</li> <li>Choose Role: Click on your device, then select COMPANION BLUETOOTH.     </li> <li> <p>Flash the Firmware:</p> <ul> <li>Choose the desired firmware.</li> <li>Click ENTER DFU MODE (labeled #1).     &gt; Troubleshooting DFU Mode:     &gt; * If you have issues getting into DFU mode, most devices can be manually entered by double-tapping the reset button.     &gt; * For Heltec v3 &amp; v4 devices, hold down the usr button, press the reset button while still holding usr, release reset, then release usr.</li> <li>Click ERASE FLASH.</li> <li>Click FLASH (labeled #2). </li> </ul> </li> <li> <p>Install the Mobile App: Go to your device\u2019s app store, search for Meshcore, and install the App.</p> </li> </ol>"
+    },
+    {
+      "location": "setting-up-meshcore-companion/#step-2-connect-to-your-radio",
+      "title": "Step 2 \u2013 Connect to Your Radio",
+      "text": "<ol> <li>Open the Meshcore App: After flashing, open the Meshcore app on your phone, tablet, etc..</li> <li> <p>Connect via Bluetooth: Connect to your phone with Bluetooth.</p> </li> <li> <p>Default Bluetooth PIN Information:</p> <ul> <li>If your radio has a screen: The current PIN will show on the screen of your companion, it is randomly generated each time you restart the device.</li> <li>If your radio doesn\u2019t have a display: The default is 123456. Change this PIN first.</li> <li>If it is paired already, your previous session will remain linked.</li> <li>You can still change to a custom PIN if you desire.</li> </ul> </li> <li> <p>Changing the Bluetooth PIN (Optional/Recommended):</p> <ul> <li>Once in the app, click the GEAR in the upper right corner, and go to BLUETOOTH SETTINGS.</li> <li>Click CUSTOM.</li> <li>Enter your desired 6-digit PIN.</li> <li>Click the CHECK MARK on the top right to save. </li> <li>Reboot the device and reconnect to the app with the new PIN.</li> <li>Click on GEAR to get back to settings.</li> </ul> </li> <li> <p>Set Public Information and Radio Settings:</p> <ul> <li>At the main screen, set your desired node name.</li> <li>Set GPS coordinates, or click on the blue map icon to the right and click on location on map.     &gt; Note: Location is not required to be set and can be left blank.</li> <li>Click CHOOSE PRESETS and choose your region, or enter custom settings if your local mesh has any. </li> </ul> </li> <li> <p>Finalize and Reboot:</p> <ul> <li>Once everything is set up, click the CHECK mark in upper right corner.</li> <li>Scroll down and REBOOT.</li> <li>Reconnect to app; Companion setup should be complete.</li> </ul> </li> </ol>"
+    },
+    {
+      "location": "setting-up-meshcore-companion/#acknowledgments",
+      "title": "Acknowledgments",
+      "text": ""
+    },
+    {
+      "location": "setting-up-meshcore-companion/#the-following-guide-was-created-by-ferret-from-west-coast-mesh-and-rr-from-the-louisiana-mesh-community-thank-you-to-these-contributors-for-their-work-on-this-guide",
+      "title": "The following guide was created by Ferret from West Coast Mesh and rr from the Louisiana Mesh community. Thank you to these contributors for their work on this guide ^~^",
+      "text": ""
+    }
+  ]
+}
