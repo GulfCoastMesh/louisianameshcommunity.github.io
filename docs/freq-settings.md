@@ -18,7 +18,7 @@ As we build out our network of repeaters, we've noticed significant distance adv
 | **Frequency** | `910.525 MHz` |
 | **Bandwidth** | `62.5 kHz` |
 | **Spreading Factor** | `9` |
-| **Coding Rate** | `6` |
+| **Coding Rate** | `5 or 8` |
 
 ---
 
