@@ -1,24 +1,23 @@
-# Frequency Settings and Channels for Louisiana's Meshcore
+# Frequency Settings and Channels for Gulf Coast Meshcore
 
-As we build out our network of repeaters, we've noticed significant distance advantages by modifying frequency settings to help interconnect Louisiana. To connect to our backbone, we recommend switching your devices to the settings outlined below.
-
----
-
-<div style="background-color: #f2c464; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
-  <p style="font-weight: bold; color: white; text-align: center;">New Network Settings!</p>
-  <p style="color: white; text-align: center;">Make sure to update your network settings to match the new settings below</p>
-</div>
+As we build out our network of repeaters, we've noticed significant distance by modifying frequency settings and repeater commands to help interconnect Louisiana. To connect to our backbone, switching your devices to the settings outlined below would be required.
 
 ---
 
-## MeshCore Network Settings
+As we grew so did the need the need to use a few extra commands to help keep the mesh smooth and reliable for everyone by managing the airtime and repeater identification for knowing where (y)our messages are going to or coming from.
+
+--- 
+
+## Settings and repeater commands.
 
 | Parameter | Setting |
 | :--- | :--- |
+| **Recommended USA/Canada**|
 | **Frequency** | `910.525 MHz` |
 | **Bandwidth** | `62.5 kHz` |
 | **Spreading Factor** | `9` |
-| **Coding Rate** | `6` |
+| **Coding Rate** | `5 or 8` |
+| (5 for strong 8 for weak connection) |
 
 ---
 **set agc.reset.interval 4**  
@@ -29,27 +28,51 @@ As we build out our network of repeaters, we've noticed significant distance adv
 **set agc.reset.interval 4**  
 **set agc.reset.interval 4**
 
-### How to Update Your Settings
+If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting **Command Line** at the bottom center to help the reliability of the Mesh for yourself and all of us.
 
-Depending on how you access your Meshcore node, follow the instructions below to apply the new frequency parameters.
+**set path.hash.mode 1**   
+**set agc.reset.interval 4**   
+**set multi.acks 1**   
+**set txdelay 0.3**   
+**set rxdelay 3**   
+each will return an **OK** reply when successful, just try again for the odd occasion it does fail.   
 
-#### Bluetooth Clients (Mobile App)
-If you are using the mobile app on [Android](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android) or [iOS](https://apps.apple.com/us/app/meshcore/id6742354151): 
+~~~Optional but highly encouraged and well appreciated~~~
 
-1. Connect to your node via **Bluetooth**.
-2. Click the **Gear Icon** at the top right.
-4. Scroll down to **Radio Settings**.
-5. Enter the frequency `910.525` and adjust the Bandwidth, SF, and CR to match the table above.
-6. Tap **Send/Save** to reboot the node with new settings.
+For those of you that are interested and able to dive a little deeper and help things along even further then go into the **repeater settings** menu, and select **Neighbors** then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.
 
-#### Wired Clients (WebUI)
-If your node is connected via USB to a computer:
+The default direct.txdelay value has a 100% probability of a collision, the default txdelay value has a 12.5% probability of a collision. Using a new txdelay randomizes when repeaters transmit, directly reducing simultaneous airtime occupancy and rxdelay randomizes when repeaters listen, preventing synchronized receive windows, ACK storms, and deterministic hop-timing patterns.
 
-1. Open the [**Meshcore Config Tool**](https://config.meshcore.dev/).
-2. Go to the **Radio Config** tab.
-3. Manually override the following values:
-   - `frequency_offset`: Set to reach `910.525`.
-   - `bandwidth`: `62`
-   - `spread_factor`: `9`
-   - `coding_rate`: `6`
-4. Click **Apply Changes**.
+Using these adaptive delays can significantly improve end-to-end DM success
+in MeshCore networks by reducing collision probability, breaking deterministic timing
+patterns, and improving both DM forwarding and ACK return reliability.
+These settings do not correlate directly to seconds but are modifiers which add milliseconds with the benefit of increased reliability for all.
+
+Neighbor Count: 0–1   
+set txdelay 0.3   
+set direct.txdelay 0.1     
+
+Neighbor Count: 2–4   
+set txdelay 0.5   
+set direct.txdelay 0.3   
+
+Neighbor Count: 5–9   
+set txdelay 1   
+set direct.txdelay 0.5   
+
+Neighbor Count: 10–14   
+set txdelay 1.5   
+set direct.txdelay 1   
+
+Neighbor Count: 15+   
+set txdelay 2   
+set direct.txdelay 2   
+
+If everyone adopts these changes, the Mesh performance will improve.
+If your neighboring repeaters do not make the change, you will not benefit, but...
+If you adopt the changes, your whole community will benefit. So please encourage everyone to adopt these recommended changes.
+
+
+
+Setting suggestions adopted from [TennMesh](https://tennmesh.com/settings/). white page info obtained from [here](https://github.com/meshcore-dev/MeshCore/discussions/2053#discussioncomment-16214117) and attempted easy to digest short form here from [Danklulz](https://discord.com/users/324403016751120386), open to suggestions and corrections.
+
