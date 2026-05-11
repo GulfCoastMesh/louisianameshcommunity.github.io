@@ -18,7 +18,7 @@ Due to the random way Meshcore issues these keys a high probability exists that 
 
 ## How do I pick an unused public key and reserve it for my repeater?
 
-The easiest way to check if your key is already in use, pick a new one if needed, and reserve that value is to get on the Louisiana Mesh Community Discord and join the `#repeater-control` channel. This is the link:
+The easiest way to check if your key is already in use, pick a new one if needed, and reserve that value is to get on the Gulf Coast Mesh Discord and join the `#repeater-control` channel. This is the link:
 
 [Discord Invite Link](https://discord.gg/BcMTYc46)
 

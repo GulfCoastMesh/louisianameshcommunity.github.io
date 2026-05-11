@@ -3,8 +3,8 @@
 This page provides a summary of affiliate programs and partnerships we have. Our goal is to maintain **complete transparency** with the community.
 
 * **Integrity First:** We have never, and will never, promote products or companies unless our community agrees they are well-made, high-performing devices.
-* **Open Source:** All services provided by the Louisiana Mesh Community are open source, community ran, and contributions are always welcomed.
-* **Distribution:** All funds rasised from any source are used to further the goals of the Louisiana Mesh Community in providing a strong, community-built decentralized network.
+* **Open Source:** All services provided by the Gulf Coast Mesh are open source, community ran, and contributions are always welcomed.
+* **Distribution:** All funds rasised from any source are used to further the goals of the Gulf Coast Mesh in providing a strong, community-built decentralized network.
 
 ---
 
@@ -20,11 +20,11 @@ We are in partnership with **Heltec Automation**. They have helped provide hardw
 ## Affiliates
 
 ### Amazon Associates
-We are an Amazon Affiliate. When you purchase equipment through our links, a small portion of the sale goes toward funding the Louisiana Mesh Community infrastructure at no additional cost to you. 
+We are an Amazon Affiliate. When you purchase equipment through our links, a small portion of the sale goes toward funding the Gulf Coast Mesh infrastructure at no additional cost to you. 
 
 ### Seeed Studio Affiliate
 
-We are an Affiliate with **Seeedstudio**, when you purchase devices through our links, a small portion of the sale goes toward funding the Louisiana Mesh Community infrastructure at no additional cost to you. 
+We are an Affiliate with **Seeedstudio**, when you purchase devices through our links, a small portion of the sale goes toward funding the Gulf Coast Mesh infrastructure at no additional cost to you. 
 
 | Program Name | Commission | Community Discount | Discount Code |
 | :--- | :--- | :--- | :--- |

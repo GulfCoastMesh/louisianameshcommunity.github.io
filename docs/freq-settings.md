@@ -20,6 +20,13 @@ As we grew so did the need the need to use a few extra commands to help keep the
 | (5 for strong 8 for weak connection) |
 
 ---
+**set agc.reset.interval 4**  
+**set multi.acks 1**  
+**set txdelay 0.3**  
+**set rxdelay 3**
+
+**set agc.reset.interval 4**  
+**set agc.reset.interval 4**
 
 If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting **Command Line** at the bottom center to help the reliability of the Mesh for yourself and all of us.
 
