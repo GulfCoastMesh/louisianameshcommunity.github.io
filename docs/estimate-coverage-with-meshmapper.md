@@ -48,9 +48,9 @@ See the [MeshMapper wiki page](https://wiki.meshmapper.net/) for much more infor
 
 ## Using the MeshMapper website
 
-The data collected by the MeshMapper application can be reviewed either through the application or through the web application. While both serve the same purpose, the website may offer an easier way to interact. See the Louisiana Mesh Community coverage listed on the MeshMapper MSY - Gulf Coast subdomain:
+The data collected by the MeshMapper application can be reviewed either through the application or through the web application. While both serve the same purpose, the website may offer an easier way to interact. See the Gulf Coast Mesh coverage listed on the MeshMapper MSY - Gulf Coast subdomain:
 
-[Meshmapper Louisiana Mesh Community Coverage](https://msy.meshmapper.net/index.php)
+[Meshmapper Gulf Coast Mesh Coverage](https://msy.meshmapper.net/index.php)
 
 ![Screenshot of meshmapper website features](img/estimate-coverage-with-meshmapper/meshmapper-website-features.png)
 

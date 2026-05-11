@@ -21,6 +21,13 @@ As we build out our network of repeaters, we've noticed significant distance adv
 | **Coding Rate** | `6` |
 
 ---
+**set agc.reset.interval 4**  
+**set multi.acks 1**  
+**set txdelay 0.3**  
+**set rxdelay 3**
+
+**set agc.reset.interval 4**  
+**set agc.reset.interval 4**
 
 ### How to Update Your Settings
 
