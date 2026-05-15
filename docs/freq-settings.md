@@ -1,15 +1,12 @@
-# Frequency Settings and Channels for Gulf Coast Meshcore
+# Frequency Settings and Channels for Gulf Coast MeshCore
 
 As we build out our network of repeaters, we've noticed significant distance by modifying frequency settings and repeater commands to help interconnect Louisiana. To connect to our backbone, switching your devices to the settings outlined below would be required.
 
 ---
 
-As we grew so did the need the need to use a few extra commands to help keep the mesh smooth and reliable for everyone by managing the airtime and repeater identification for knowing where (y)our messages are going to or coming from.
-
---- 
-
 ## Settings and repeater commands.
 
+| Parameter | Setting |
 | :--- | :--- |
 | **Recommended USA/Canada**|
 | **Frequency** | `910.525 MHz` |
@@ -17,8 +14,6 @@ As we grew so did the need the need to use a few extra commands to help keep the
 | **Spreading Factor** | `9` |
 | **Coding Rate** | `5 or 8` |
 | (5 for strong 8 for weak connection) |
-
----
 
 If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting **Command Line** at the bottom center to help the reliability of the Mesh for yourself and all of us.
 
@@ -55,8 +50,7 @@ Neighbor Count: 15+
 set txdelay 2   
 set direct.txdelay 2   
 
-
-
+---
 
 White page info obtained from [here](https://github.com/meshcore-dev/MeshCore/discussions/2053#discussioncomment-16214117) and attempted easy to digest short form here from [Danklulz](https://discord.com/users/324403016751120386), open to suggestions and corrections.
 
