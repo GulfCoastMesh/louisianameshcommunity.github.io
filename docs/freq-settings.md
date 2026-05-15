@@ -10,7 +10,7 @@ As we grew so did the need the need to use a few extra commands to help keep the
 
 ## Settings and repeater commands.
 
-| Parameter | Recommended USA/Canada |
+| Parameter | Setting |
 | :--- | :--- |
 | **Frequency** | `910.525 MHz` |
 | **Bandwidth** | `62.5 kHz` |
