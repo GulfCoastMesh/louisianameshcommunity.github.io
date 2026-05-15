@@ -1,6 +1,6 @@
-# Louisiana Mesh Community Docs
+# Gulf Coast Mesh Docs
 
-## Welcome to the Louisiana Mesh Community Docs: a curated collection of resources for the Louisiana Mesh community and beyond.
+## Welcome to the Gulf Coast Mesh Docs: a curated collection of resources for the Gulf Coast Mesh and beyond.
 ---
 
 ### *Join our Discord for real time chats and our weekly Monday voice meeting [here](https://discord.louisianamesh.org)*.
@@ -21,4 +21,4 @@
 
 ---
 
-## Thank you for helping build the Louisiana Mesh Community.
+## Thank you for helping build the Gulf Coast Mesh.

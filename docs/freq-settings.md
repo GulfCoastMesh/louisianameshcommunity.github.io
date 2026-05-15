@@ -15,6 +15,8 @@ As we build out our network of repeaters, we've noticed significant distance by 
 | **Coding Rate** | `5 or 8` |
 | (5 for strong 8 for weak connection) |
 
+---
+
 If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting **Command Line** at the bottom center to help the reliability of the Mesh for yourself and all of us.
 
 **set path.hash.mode 1**   

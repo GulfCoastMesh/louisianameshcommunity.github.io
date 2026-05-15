@@ -69,4 +69,4 @@ This guide details the steps to set up your Meshcore Repeater device.
 
 ## Acknowledgments
 
-#### The following guide was created by Ferret from West Coast Mesh and rr from the Louisiana Mesh community. Thank you to these contributors for their work on this guide ^~^
+#### The following guide was created by Ferret from West Coast Mesh and rr from the Gulf Coast Mesh. Thank you to these contributors for their work on this guide ^~^
