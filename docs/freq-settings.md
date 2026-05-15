@@ -37,7 +37,9 @@ If you are setting up a repeater(thank you), please enter these commands below b
 **set rxdelay 3**   
 each will return an **OK** reply when successful, just try again for the odd occasion it does fail.   
 
-~~~Optional but highly encouraged and well appreciated~~~
+These enable 2byte IDs to avoid network confusion, smooth out reception between strong and weak incoming signals, and an extra receipt to be sent between each repeater to help each be sure its' job is complete. The delays are minimal, we promise.
+
+**~~~Optional but highly encouraged and well appreciated~~~**
 
 For those of you that are interested and able to dive a little deeper and help things along even further then go into the **repeater settings** menu, and select **Neighbors** then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.
 
@@ -66,7 +68,7 @@ set direct.txdelay 1
 
 Neighbor Count: 15+   
 set txdelay 2   
-set direct.txdelay 2   
+set direct.txdelay 1.8   
 
 If everyone adopts these changes, the Mesh performance will improve.
 If your neighboring repeaters do not make the change, you will not benefit, but...
