@@ -2,9 +2,6 @@
 
 ### This is a list of channels that we use on our network to help organize conversations.
 
-#### Repeater Testing Channel
-
-The repeater testing channel, `#repeater-testing`, is reserved for testing deployments on a channel that won't clog up public. It should not be used for conversations.
 
 #### News Channel
 
@@ -13,6 +10,22 @@ This channel is reserved for news and announcements during emergencies, `#news`,
 #### Emergency Channel
 
 This channel is reserved for emergencies, `#emergency`, Please try to keep this channel for discussing active emergencies or preperations.
+
+#### Repeater Testing Channel
+
+The repeater testing channel, `#repeater-testing`, is reserved for testing deployments on a channel that won't clog up public. It should not be used for conversations.
+
+#### Test Channel
+
+The general testing channel, `#test`, is reserved for more general testing of hardware or software.
+
+#### Dad Jokes (Aka #fun)
+
+The dad jokes channel, `#fun`, is just for making jokes and having fun.
+
+#### Weather
+
+The weather channel, `#weather`, is for weather related discussion's.
 
 ---
 
