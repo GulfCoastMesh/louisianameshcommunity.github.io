@@ -16,7 +16,7 @@ As we grew so did the need the need to use a few extra commands to help keep the
 | **Bandwidth** | `62.5 kHz` |
 | **Spreading Factor** | `9` |
 | **Coding Rate** | `5` or `8` |
-| **Connection Type** | 5 (strong) / 8 (weak) ||
+| **Connection Type** | `5` (strong) / `8` (weak) ||
 
 ---
 
@@ -28,6 +28,8 @@ If you are setting up a repeater(thank you), please enter these commands below b
 **`set txdelay 0.3`**   
 **`set rxdelay 3`**   
 each will return an **OK** reply when successful, just try again for the odd occasion it does fail.   
+
+Please set your Advert intervals to **Zero Hop - 240** and **Flood - 23**
 
 These enable 2byte IDs to avoid network confusion, smooth out reception between strong and weak incoming signals, and an extra receipt to be sent between each repeater to help each be sure its' job is complete. The delays are minimal, we promise.
 
