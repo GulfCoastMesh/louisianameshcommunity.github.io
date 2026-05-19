@@ -37,14 +37,14 @@ These enable 2byte IDs to avoid network confusion, smooth out reception between 
 
 For those of you that are interested and able to dive a little deeper and help things along even further then go into the **repeater settings** menu, and select **Neighbors**then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.
 
+***Neighbors with SNR 0+***
+
 | Neighbor Count | `txdelay` | `direct.txdelay` | Command's |
 | :--- | :--- | :--- | :--- |
-| **0–1** | `0.3` | `0.1` | <details><summary>Show Commands</summary>```set txdelay 0.3``` and ```set direct.txdelay 0.1```</details> |
-| **2–4** | `0.5` | `0.3` | <details><summary>Show Commands</summary>```set txdelay 0.5``` and ```set direct.txdelay 0.3```</details> |
-| **5–9** | `1.0` | `0.5` | <details><summary>Show Commands</summary>```set txdelay 1``` and ```set direct.txdelay 0.5```</details> |
-| **10–14** | `1.5` | `1.0` | <details><summary>Show Commands</summary>```set txdelay 1.5``` and ```set direct.txdelay 1.0```</details> |
-| **15+** | `2.0` | `2.0` | <details><summary>Show Commands</summary>```set txdelay 2.0``` and ```set direct.txdelay 2.0t```</details> |
-
+| **1-3** | `1-1.2` | `0.4-0.6` | <details><summary>Show Commands</summary>```set txdelay 1-1.2``` and ```set direct.txdelay 0.4-0.6```</details> |
+| **4-8** | `1.2-1.6` | `0.5-0.8` | <details><summary>Show Commands</summary>```set txdelay 1.2-1.6``` and ```set direct.txdelay 0.5-0.8```</details> |
+| **9-12** | `1.8-2.1` | `0.6–0.9` | <details><summary>Show Commands</summary>```set txdelay 1.8-2.1``` and ```set direct.txdelay 0.6–0.9```</details> |
+| **13+** | `1.8-2.5` | `0.6-0.9` | <details><summary>Show Commands</summary>```set txdelay 1.8-2.5``` and ```set direct.txdelay 0.6-0.9```</details> |
 
 
 White page info obtained from [here](https://github.com/meshcore-dev/MeshCore/discussions/2053#discussioncomment-16214117) and attempted easy to digest short form here from [Danklulz](https://discord.com/users/324403016751120386), open to suggestions and corrections.
