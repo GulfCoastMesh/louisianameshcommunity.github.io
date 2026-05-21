@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -54,6 +54,13 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  <script async data-id="101506271" src="//static.getclicky.com/js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -76,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#frequency-settings-and-channels-for-gulf-coast-meshcore" class="md-skip">
+        <a href="#frequency-settings-for-gulf-coast-meshcore" class="md-skip">
           Skip to content
         </a>
       
@@ -863,7 +870,7 @@
 
 
 
-<h1 id="frequency-settings-and-channels-for-gulf-coast-meshcore">Frequency Settings and Channels for Gulf Coast Meshcore</h1>
+<h1 id="frequency-settings-for-gulf-coast-meshcore">Frequency Settings for Gulf Coast Meshcore</h1>
 <p>As we build out our network of repeaters, we've noticed significant distance by modifying frequency settings and repeater commands to help interconnect Louisiana. To connect to our backbone, switching your devices to the settings outlined below would be required.</p>
 <hr />
 <p>As we grew so did the need the need to use a few extra commands to help keep the mesh smooth and reliable for everyone by managing the airtime and repeater identification for knowing where (y)our messages are going to or coming from.</p>
@@ -878,10 +885,6 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Recommended USA/Canada</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
 <td style="text-align: left;"><strong>Frequency</strong></td>
 <td style="text-align: left;"><code>910.525 MHz</code></td>
 </tr>
@@ -891,58 +894,70 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Spreading Factor</strong></td>
-<td style="text-align: left;"><code>9</code></td>
+<td style="text-align: left;"><code>7</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Coding Rate</strong></td>
-<td style="text-align: left;"><code>5 or 8</code></td>
+<td style="text-align: left;"><code>5</code> or <code>8</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">(5 for strong 8 for weak connection)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Connection Type</strong></td>
+<td style="text-align: left;">5 (strong) / 8 (weak)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p><strong>set agc.reset.interval 4</strong><br />
-<strong>set multi.acks 1</strong><br />
-<strong>set txdelay 0.3</strong><br />
-<strong>set rxdelay 3</strong></p>
-<p><strong>set agc.reset.interval 4</strong><br />
-<strong>set agc.reset.interval 4</strong></p>
 <p>If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting <strong>Command Line</strong> at the bottom center to help the reliability of the Mesh for yourself and all of us.</p>
-<p><strong>set path.hash.mode 1</strong> <br />
-<strong>set agc.reset.interval 4</strong> <br />
-<strong>set multi.acks 1</strong> <br />
-<strong>set txdelay 0.3</strong> <br />
-<strong>set rxdelay 3</strong> <br />
+<p><strong><code>set path.hash.mode 1</code></strong> <br />
+<strong><code>set agc.reset.interval 4</code></strong> <br />
+<strong><code>set multi.acks 1</code></strong>  <br />
 each will return an <strong>OK</strong> reply when successful, just try again for the odd occasion it does fail.   </p>
-<p>~~~Optional but highly encouraged and well appreciated~~~</p>
-<p>For those of you that are interested and able to dive a little deeper and help things along even further then go into the <strong>repeater settings</strong> menu, and select <strong>Neighbors</strong> then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.</p>
-<p>The default direct.txdelay value has a 100% probability of a collision, the default txdelay value has a 12.5% probability of a collision. Using a new txdelay randomizes when repeaters transmit, directly reducing simultaneous airtime occupancy and rxdelay randomizes when repeaters listen, preventing synchronized receive windows, ACK storms, and deterministic hop-timing patterns.</p>
-<p>Using these adaptive delays can significantly improve end-to-end DM success
-in MeshCore networks by reducing collision probability, breaking deterministic timing
-patterns, and improving both DM forwarding and ACK return reliability.
-These settings do not correlate directly to seconds but are modifiers which add milliseconds with the benefit of increased reliability for all.</p>
-<p>Neighbor Count: 0–1 <br />
-set txdelay 0.3 <br />
-set direct.txdelay 0.1     </p>
-<p>Neighbor Count: 2–4 <br />
-set txdelay 0.5 <br />
-set direct.txdelay 0.3   </p>
-<p>Neighbor Count: 5–9 <br />
-set txdelay 1 <br />
-set direct.txdelay 0.5   </p>
-<p>Neighbor Count: 10–14 <br />
-set txdelay 1.5 <br />
-set direct.txdelay 1   </p>
-<p>Neighbor Count: 15+ <br />
-set txdelay 2 <br />
-set direct.txdelay 2   </p>
-<p>If everyone adopts these changes, the Mesh performance will improve.
-If your neighboring repeaters do not make the change, you will not benefit, but...
-If you adopt the changes, your whole community will benefit. So please encourage everyone to adopt these recommended changes.</p>
-<p>Setting suggestions adopted from <a href="https://tennmesh.com/settings/">TennMesh</a>. white page info obtained from <a href="https://github.com/meshcore-dev/MeshCore/discussions/2053#discussioncomment-16214117">here</a> and attempted easy to digest short form here from <a href="https://discord.com/users/324403016751120386">Danklulz</a>, open to suggestions and corrections.</p>
+<p>These enable 2byte IDs to avoid network confusion, smooth out reception between strong and weak incoming signals, and an extra receipt to be sent between each repeater to help each be sure its' job is complete. The delays are minimal, we promise.</p>
+<p><strong>~~~Optional but encouraged and well appreciated~~~</strong></p>
+<p>For those of you that are interested and able to dive a little deeper and help things along even further then go into the <strong>repeater settings</strong> menu, and select <strong>Neighbors</strong>then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Neighbor Count</th>
+<th style="text-align: left;"><code>txdelay</code></th>
+<th style="text-align: left;"><code>direct.txdelay</code></th>
+<th style="text-align: left;">Command's</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>0–1</strong></td>
+<td style="text-align: left;"><code>0.3</code></td>
+<td style="text-align: left;"><code>0.1</code></td>
+<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 0.3</code> and <code>set direct.txdelay 0.1</code></details></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2–4</strong></td>
+<td style="text-align: left;"><code>0.5</code></td>
+<td style="text-align: left;"><code>0.3</code></td>
+<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 0.5</code> and <code>set direct.txdelay 0.3</code></details></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5–9</strong></td>
+<td style="text-align: left;"><code>1.0</code></td>
+<td style="text-align: left;"><code>0.5</code></td>
+<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 1</code> and <code>set direct.txdelay 0.5</code></details></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10–14</strong></td>
+<td style="text-align: left;"><code>1.5</code></td>
+<td style="text-align: left;"><code>1.0</code></td>
+<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 1.5</code> and <code>set direct.txdelay 1.0</code></details></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15+</strong></td>
+<td style="text-align: left;"><code>2.0</code></td>
+<td style="text-align: left;"><code>2.0</code></td>
+<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 2.0</code> and <code>set direct.txdelay 2.0t</code></details></td>
+</tr>
+</tbody>
+</table>
+<p>White page info obtained from <a href="https://github.com/meshcore-dev/MeshCore/discussions/2053#discussioncomment-16214117">here</a> and attempted easy to digest short form here from <a href="https://discord.com/users/324403016751120386">Danklulz</a>, open to suggestions and corrections.</p>
 
 
 
@@ -951,6 +966,8 @@ If you adopt the changes, your whole community will benefit. So please encourage
 
 
 
+
+  
 
 
 

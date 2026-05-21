@@ -14,7 +14,7 @@ As we grew so did the need the need to use a few extra commands to help keep the
 | :--- | :--- |
 | **Frequency** | `910.525 MHz` |
 | **Bandwidth** | `62.5 kHz` |
-| **Spreading Factor** | `9` |
+| **Spreading Factor** | `7` |
 | **Coding Rate** | `5` or `8` |
 | **Connection Type** | `5` (strong) / `8` (weak) ||
 
@@ -24,16 +24,14 @@ If you are setting up a repeater(thank you), please enter these commands below b
 
 **`set path.hash.mode 1`**   
 **`set agc.reset.interval 4`**   
-**`set multi.acks 1`**   
-**`set txdelay 0.3`**   
-**`set rxdelay 3`**   
+**`set multi.acks 1`**    
 each will return an **OK** reply when successful, just try again for the odd occasion it does fail.   
 
 Please set your Advert intervals to **Zero Hop - 240** and **Flood - 23**
 
 These enable 2byte IDs to avoid network confusion, smooth out reception between strong and weak incoming signals, and an extra receipt to be sent between each repeater to help each be sure its' job is complete. The delays are minimal, we promise.
 
-**~~~Optional but highly encouraged and well appreciated~~~**
+**~~~Optional but encouraged and well appreciated~~~**
 
 For those of you that are interested and able to dive a little deeper and help things along even further then go into the **repeater settings** menu, and select **Neighbors**then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.
 
