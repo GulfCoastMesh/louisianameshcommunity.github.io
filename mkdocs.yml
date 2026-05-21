@@ -2,6 +2,7 @@ site_name: Gulf Coast Mesh Docs
 site_url: https://docs.louisianamesh.org/
 theme:
   name: material
+  custom_dir: overrides
   palette:
     # Light Mode
     - scheme: default
@@ -37,6 +38,9 @@ nav:
   - Community Transparency: transparency.md
 
 extra:
+  analytics:
+    provider: custom
+    property: "101506271"
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/LouisianaMeshCommunity
