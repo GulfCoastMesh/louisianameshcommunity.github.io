@@ -6,14 +6,8 @@
 #### Good Small: 18$
 [ALFA Network Omni](https://amzn.to/48OW9zD)
 
-#### Good: $50 
+#### Almost Perfect: $50 
 [Rokland Backcountry N-Male Omni Antenna](https://store.rokland.com/products/10-dbi-backcountry-n-male-omni-outdoor-helium-915-mhz-antenna-48-for-rak-miner-2-nebra-indoor-bobcat-hotspots)
-
-#### Almost Better: $59
-[915mhz LoRa Antenna/meshtastic](https://amzn.to/4rVPg65)
-
-#### Better: $70 
-[Seeedstudio Fiberglass Antenna](https://www.seeedstudio.com/RF-Explorer-LoRa-Fiberglass-Antenna-Kit-902-928MHz-8dBi-1300mm-p-5278.html)
 
 #### Best: $150 
 [It's a diamond, if your into ham; yknow what it is](https://www.diamondantenna.net/bc920.html)
@@ -30,17 +24,6 @@
 
 ---
 
-## Repeater Antenna Recommendedations
-
-### "Eifgur" (Appears to be a Rokland knokeoff): 44$
-[Almost identical preformance to the Rokland for 10$ less and free shipping with prime.](https://amzn.to/49swpIc)
-
-### ALFA Knokeoff: 12$
-[Simlar prefomance to the ALFA for 5$ less, Good for hanging/less then legal nodes](https://amzn.to/3KUJP7M)
-
-
----
-
 ## Do Not Buy:
 
 #### [Cheap Ebay Whip Antenna](https://www.ebay.com/itm/196317210118) 
@@ -52,6 +35,8 @@ Grumpy: "I think these Raigen antennas are worse crap then the Alfa’s", Horrib
 #### [Any Bending Antenna (0-90 degree)](https://amzn.to/48Nx1cz)
 Nola Mesh: These antennas are okay when pointing stright up, but bended complely changes the antennna profile.
 
+#### [Signal Plus (Newer Models)](https://amzn.to/4f38pj7)
+It seems the newer batches of these antennas are performing much worse than ones purchased a few months ago.
 
 ---
 
