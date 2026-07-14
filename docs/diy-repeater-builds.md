@@ -8,13 +8,14 @@ With our rapid growth over the past few months, a few core contributors have put
 | Component | Description | Link |
 | :--- | :--- | :--- |
 | **Radio** | Heltec V4 (Screenless) with Wi-Fi | [Buy on Amazon](https://amzn.to/4txIbds) |
+| **Radio** | WisMesh 1w | [Rakwirless](https://store.rakwireless.com/products/meshtastic-1w-lora-booster-kit-rak3401)
 
 ### Power & Solar
 | Component | Description | Link |
 | :--- | :--- | :--- |
 | **Solar Panel** | 10 Watt Solar Panel | [Buy on Amazon](https://amzn.to/46bI2CHs) |
 | **Battery** | 10,000 mAh Li-Po Battery | [Buy on Amazon](https://amzn.to/3ObMsTZ) |
-| **MPPT Charge Controller** | Solar Charge Controller (Not required but recommended) | [Buy on Amazon](https://amzn.to/3OnLSCC) |
+| **MPPT Charge Controller** | Solar Charge Controller (Not required for Heltec v4, but recommended. Required for Rak 1w) | [Buy on Amazon](https://amzn.to/3OnLSCC) |
 
 ### Enclosure & Hardware
 | Component | Description | Link |
@@ -27,7 +28,7 @@ With our rapid growth over the past few months, a few core contributors have put
 ### Antenna's
 | :--- | :--- | :--- |
 | Component | Description | Link |
-| **Wifi Antenna** | RP-SMA Male Antenna | [Buy on Amazon](https://amzn.to/4aAARoK) |
+| **Wifi Antenna (only for Heltec v4)** | RP-SMA Male Antenna | [Buy on Amazon](https://amzn.to/4aAARoK) |
 
 ### Refer to the [antenna's page](antenna.md) for 915MHz Antennas
 

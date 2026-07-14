@@ -23,8 +23,8 @@ theme:
 nav:
   - Home: index.md
   - Local Settings and Information:
-      - Meshcore Frequency's For Louisiana: freq-settings.md
-      - Meshcore Channel's In Louisiana: channels.md
+      - Meshcore Frequency's: freq-settings.md
+      - Meshcore Channel's: channels.md
   - Hardware & Guides:
       - What Device should I buy?: devicerecs.md
       - What Antenna should I use?: antenna.md
