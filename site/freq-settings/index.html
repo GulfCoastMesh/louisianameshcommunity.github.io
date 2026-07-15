@@ -21,11 +21,11 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Meshcore Frequency's For Louisiana - Gulf Coast Mesh Docs</title>
+        <title>Meshcore Frequency's - Gulf Coast Mesh Docs</title>
       
     
     
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Meshcore Frequency's For Louisiana
+              Meshcore Frequency's
             
           </span>
         </div>
@@ -333,7 +333,7 @@
   <span class="md-ellipsis">
     
   
-    Meshcore Frequency's For Louisiana
+    Meshcore Frequency's
   
 
     
@@ -351,7 +351,7 @@
   <span class="md-ellipsis">
     
   
-    Meshcore Frequency's For Louisiana
+    Meshcore Frequency's
   
 
     
@@ -385,6 +385,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Settings and repeater commands.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#region-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Region Codes:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -410,7 +427,7 @@
   <span class="md-ellipsis">
     
   
-    Meshcore Channel's In Louisiana
+    Meshcore Channel's
   
 
     
@@ -851,6 +868,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Settings and repeater commands.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#region-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Region Codes:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -906,6 +940,34 @@
 </tr>
 </tbody>
 </table>
+<h3 id="region-codes">Region Codes:</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Region</th>
+<th style="text-align: left;">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">PNS</td>
+<td style="text-align: left;"><code>gc-fl-pns-mm</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">LFT</td>
+<td style="text-align: left;"><code>gc-la-lft-mm</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">MSY</td>
+<td style="text-align: left;"><code>gc-la-msy-mm</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">GPT</td>
+<td style="text-align: left;"><code>gc-ms-gpt-mm</code></td>
+</tr>
+</tbody>
+</table>
+<p>Please configure your repeater to block mesh-mapper region codes from adjacent areas, and only allow the region code your within; this prevents network congestion and ensures only your local region's code is active on your device.</p>
 <hr />
 <p>If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting <strong>Command Line</strong> at the bottom center to help the reliability of the Mesh for yourself and all of us.</p>
 <p><strong><code>set path.hash.mode 1</code></strong> <br />
@@ -913,51 +975,6 @@
 <strong><code>set multi.acks 1</code></strong>  <br />
 each will return an <strong>OK</strong> reply when successful, just try again for the odd occasion it does fail.   </p>
 <p>These enable 2byte IDs to avoid network confusion, smooth out reception between strong and weak incoming signals, and an extra receipt to be sent between each repeater to help each be sure its' job is complete. The delays are minimal, we promise.</p>
-<p><strong>~~~Optional but encouraged and well appreciated~~~</strong></p>
-<p>For those of you that are interested and able to dive a little deeper and help things along even further then go into the <strong>repeater settings</strong> menu, and select <strong>Neighbors</strong>then use the following section to apply a more specific set of delays in an effort to let each tier of repeater do its’ job before the next takes over.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Neighbor Count</th>
-<th style="text-align: left;"><code>txdelay</code></th>
-<th style="text-align: left;"><code>direct.txdelay</code></th>
-<th style="text-align: left;">Command's</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>0–1</strong></td>
-<td style="text-align: left;"><code>0.3</code></td>
-<td style="text-align: left;"><code>0.1</code></td>
-<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 0.3</code> and <code>set direct.txdelay 0.1</code></details></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>2–4</strong></td>
-<td style="text-align: left;"><code>0.5</code></td>
-<td style="text-align: left;"><code>0.3</code></td>
-<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 0.5</code> and <code>set direct.txdelay 0.3</code></details></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>5–9</strong></td>
-<td style="text-align: left;"><code>1.0</code></td>
-<td style="text-align: left;"><code>0.5</code></td>
-<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 1</code> and <code>set direct.txdelay 0.5</code></details></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>10–14</strong></td>
-<td style="text-align: left;"><code>1.5</code></td>
-<td style="text-align: left;"><code>1.0</code></td>
-<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 1.5</code> and <code>set direct.txdelay 1.0</code></details></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>15+</strong></td>
-<td style="text-align: left;"><code>2.0</code></td>
-<td style="text-align: left;"><code>2.0</code></td>
-<td style="text-align: left;"><details><summary>Show Commands</summary><code>set txdelay 2.0</code> and <code>set direct.txdelay 2.0t</code></details></td>
-</tr>
-</tbody>
-</table>
-<p>White page info obtained from <a href="https://github.com/meshcore-dev/MeshCore/discussions/2053#discussioncomment-16214117">here</a> and attempted easy to digest short form here from <a href="https://discord.com/users/324403016751120386">Danklulz</a>, open to suggestions and corrections.</p>
 
 
 
