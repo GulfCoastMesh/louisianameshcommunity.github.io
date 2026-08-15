@@ -2,46 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.louisianamesh.org/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/antenna/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/change-repeater-public-key/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/channels/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/devicerecs/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/diy-repeater-builds/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/estimate-coverage-with-meshmapper/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/freq-settings/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/meshcore-repeater-setup/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/setting-up-meshcore-companion/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.louisianamesh.org/setting-up-meshcore-observer/</loc>
+         <lastmod>2026-08-15</lastmod>
     </url>
     <url>
          <loc>https://docs.louisianamesh.org/transparency/</loc>
-         <lastmod>2026-07-15</lastmod>
+         <lastmod>2026-08-15</lastmod>
     </url>
 </urlset>

@@ -647,7 +647,35 @@
   <span class="md-ellipsis">
     
   
-    Setting up a Meshcore Companion
+    How to setup a Meshcore Companion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-meshcore-observer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to setup a Meshcore Observer
   
 
     
@@ -963,17 +991,19 @@
 </tr>
 <tr>
 <td style="text-align: left;">GPT</td>
-<td style="text-align: left;"><code>gc-ms-gpt-mm</code></td>
+<td style="text-align: left;"><code>us-cm-mm</code></td>
 </tr>
 </tbody>
 </table>
-<p>Please configure your repeater to block mesh-mapper region codes from adjacent areas, and only allow the region code your within; this prevents network congestion and ensures only your local region's code is active on your device.</p>
+<p>Please configure your repeater to block mesh-mapper region codes from adjacent areas, and only allow the region code your within; this prevents network congestion and ensures only your local region's code is active on your device.
+| <strong>Connection Type</strong> | <code>5</code> (strong) / <code>8</code> (weak) ||</p>
 <hr />
 <p>If you are setting up a repeater(thank you), please enter these commands below by logging into it and selecting <strong>Command Line</strong> at the bottom center to help the reliability of the Mesh for yourself and all of us.</p>
 <p><strong><code>set path.hash.mode 1</code></strong> <br />
 <strong><code>set agc.reset.interval 4</code></strong> <br />
-<strong><code>set multi.acks 1</code></strong>  <br />
-each will return an <strong>OK</strong> reply when successful, just try again for the odd occasion it does fail.   </p>
+<strong><code>set multi.acks 1</code></strong>    </p>
+<p>each will return an <strong>OK</strong> reply when successful, just try again for the odd occasion it does fail.   </p>
+<p>Please set your Advert intervals to <strong>Zero Hop - 240</strong> and <strong>Flood - 23</strong></p>
 <p>These enable 2byte IDs to avoid network confusion, smooth out reception between strong and weak incoming signals, and an extra receipt to be sent between each repeater to help each be sure its' job is complete. The delays are minimal, we promise.</p>
 
 
