@@ -1,0 +1,13 @@
+name: Notify website of docs changes
+on:
+  push:
+    branches: [main]
+
+jobs:
+  revalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping revalidation endpoint
+        run: |
+          curl -sf -X POST "https://www.gulfcoastmesh.org/api/revalidate-docs" \
+            -H "x-revalidate-secret: ${{ secrets.REVALIDATE_SECRET }}"
