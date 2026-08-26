@@ -15,6 +15,8 @@ We are in partnership with **Heltec Automation**. They have helped provide hardw
 
 > We have not received monetary compensation from Heltec. we promote their hardware because we believe they are well-made, high-performing devices.
 
+### Grumpy Mesh
+
 ---
 
 ## Affiliates
