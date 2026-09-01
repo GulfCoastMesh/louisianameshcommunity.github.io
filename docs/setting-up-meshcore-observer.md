@@ -64,7 +64,7 @@ set mqtt.ntp time.cloudflare.com
 set mqtt3.preset custom
 set mqtt3.server mqtt.gulfcoastmesh.org
 set mqtt3.port 8883
-set mqtt3.user uplink
+set mqtt3.username uplink
 set mqtt3.password uplink
 
 
