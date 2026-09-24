@@ -1,5 +1,7 @@
 
 /venv
+/docs/assets/data/regions.json
+__pycache__/
 /site
 /site
 /site

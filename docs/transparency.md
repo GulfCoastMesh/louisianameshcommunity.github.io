@@ -16,6 +16,9 @@ We are in partnership with **Heltec Automation**. They have helped provide hardw
 > We have not received monetary compensation from Heltec. we promote their hardware because we believe they are well-made, high-performing devices.
 
 ### Grumpy Mesh
+A few leading members of the Gulf Coast Mesh are affiliated with **Grumpy Mesh**, a company that builds hardware specifically for MeshCore based on the needs of our community and others.
+
+> To avoid bias in our recommendations, parties unaffiliated with Grumpy Mesh update our device recommendations.
 
 ---
 

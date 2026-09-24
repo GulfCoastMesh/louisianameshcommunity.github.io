@@ -21,7 +21,7 @@ The general testing channel, `#test`, is reserved for more general testing of ha
 
 #### Dad Jokes (Aka #fun)
 
-The dad jokes channel, `#fun`, is just for making jokes and having fun.
+The dad jokes channel, `#fun`.
 
 #### Weather
 

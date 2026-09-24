@@ -6,7 +6,7 @@
 #### Good Small: 18$
 [ALFA Network Omni](https://amzn.to/48OW9zD)
 
-#### Almost Perfect: $50 
+#### Best Antenna Sub 100$: $50 
 [Rokland Backcountry N-Male Omni Antenna](https://store.rokland.com/products/10-dbi-backcountry-n-male-omni-outdoor-helium-915-mhz-antenna-48-for-rak-miner-2-nebra-indoor-bobcat-hotspots)
 
 #### Best: $150 

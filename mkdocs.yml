@@ -24,11 +24,11 @@ nav:
   - Home: index.md
   - Local Settings and Information:
       - Meshcore Frequency's: freq-settings.md
+      - MeshCore Region Codes: region-codes.md
       - Meshcore Channel's: channels.md
   - Hardware & Guides:
       - What Device should I buy?: devicerecs.md
       - What Antenna should I use?: antenna.md
-      - Our Standard repeater build: diy-repeater-builds.md
   - Setup Guides:
       - How to setup a Meshcore Companion: setting-up-meshcore-companion.md
       - How to setup a Meshcore Observer: setting-up-meshcore-observer.md
@@ -37,6 +37,12 @@ nav:
       - How to change repeater public key: change-repeater-public-key.md
       - Estimate coverage with Meshmapper: estimate-coverage-with-meshmapper.md
   - Community Transparency: transparency.md
+
+extra_css:
+  - assets/stylesheets/region-map.css
+extra_javascript:
+  - assets/javascripts/region-core.js
+  - assets/javascripts/region-map.js
 
 extra:
   analytics:

@@ -1,0 +1,9 @@
+{
+  "areas": [
+    {"id": "us-pns", "name": "Pensacola (PNS)", "meshmapper": "gc-fl-pns-mm"},
+    {"id": "us-lft", "name": "Lafayette (LFT)", "meshmapper": "gc-la-lft-mm"},
+    {"id": "us-msy", "name": "Gulf Coast Louisiana (MSY)", "meshmapper": "gc-la-msy-mm"},
+    {"id": "us-gpt", "name": "Gulfport–Biloxi (GPT)", "meshmapper": "us-ms-gpt-mm"}
+  ],
+  "allowedStatuses": ["official_local", "official_ecmesh", "coordinated_external", "political_boundaries"]
+}

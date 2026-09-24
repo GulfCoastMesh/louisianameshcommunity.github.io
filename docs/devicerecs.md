@@ -21,9 +21,15 @@ If you are looking for a reliable, rugged, and water-resistant node with a 5-day
 ## Solar Node Recommendations
 
 ### Pre-made Solar Nodes
-If you prefer a "plug-and-play" solution that is weather-ready out of the box, the **Heltec Meshtower v2** from [Heltec Automation](https://heltec.org/project/meshtower/) is a great choice. These units integrate the solar controller and enclosure, saving you significant assembly time. 
+If you prefer a "plug-and-play" solution that is weather-ready out of the box, these pre-made solar repeaters can save you significant assembly time.
 
-The 30db version is recommended as it's output power is 4x 22b allowing for a much further connection.
+* **[Grumpy Jr](https://grumpymesh.com/grumpy-jr):** A smaller budget-friendly, ready-made repeater with 28 dBm of output power. Perfect for a home or business.
+* **[Grumpy X](https://grumpymesh.com/grumpy-x-repeater):** A larger, full-size repeater with an MPPT solar controller and a Heltec V4 radio providing 28 dBm of output power. It can be upgraded to a Grumpy Board for full 1 W output power.
+* **[Grumpy Peater](https://grumpymesh.com/grumpy-peater):** A full-size repeater with a 1 W output power and an MPPT solar controller.
+
+* **[Heltec Meshtower V2](https://heltec.org/project/meshtower/):** A ready-made solar node with an integrated solar controller and enclosure. The 30 dBm version is recommended for its higher output power and longer-range connections.
+
+> **Warning:** We have seen some reports of water building up inside Heltec Meshtower V2 units. Keep this potential moisture issue in mind when considering it for some deployment's.
 
 ### Repeater Nodes to Build
 For those DIYing their own repeater or solar enclosures, here are some boards we recommend.
@@ -31,6 +37,7 @@ For those DIYing their own repeater or solar enclosures, here are some boards we
 #### Top Picks:
 * **Heltec V4:**: Our recommended board for repeater deployments using Meshcore
 * **Heltec T096**: A more power efficient alternative, with same output power. (Bluetooth | Limited OTA Range)
+* **Grumpy Board**: A full 1w board, with onboard filtering. (Wifi)
 * **Rak Wismesh 1w**: More powerful version of the Heltec v4 & T096 (Bluetooth | Limited OTA Range)
 
 ---
@@ -43,6 +50,7 @@ The Rak 22b WisMesh board's are shown to have horrible QC, inconsistent performa
 | :--- | :--- | :--- | :--- |
 | **Heltec V4** | Higher transmit power | Higher power consumption | [Heltec Automation](https://heltec.org/project/wifi-lora-32-v4/),  [Amazon External Wifi Without Screen](https://amzn.to/48WPXWg), [Amazon With Screen](https://amzn.to/48YZfQb) 
 | **Heltec T096** | Lower power consumption | Harder OTA Updates | [Heltec Automation](https://heltec.org/project/t096/),  [Amazon](https://amzn.to/4yivGVP)
+| **Grumpy Board** | Highest transmit power, Wifi updates, Filtering | Higher power consumption, High Cost | [Grumpy Mesh](https://grumpymesh.com/board) 
 | **Rak Wismesh 1w** | Low power consumption, 30db output power | Harder OTA Updates | [Rakwireless](https://store.rakwireless.com/products/meshtastic-1w-lora-booster-kit-rak3401)
 
 
