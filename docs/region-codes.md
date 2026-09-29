@@ -11,17 +11,25 @@ When you send a scoped message, a small code travels with the packet. A compatib
 
 ## Find your repeater's region codes
 
-Choose where the **repeater is installed on the map below**.
+Choose where the **repeater is installed on the map below**, or enter its coordinates. Region codes are selected automatically from the mapped boundaries.
+
+**Enter region codes on repeaters only, not companions. Leave `*` (unscoped) allowed.**
 
 <div id="region-picker">
   <p data-status role="status" aria-live="polite">Loading region data…</p>
+  <form>
+    <fieldset disabled>
+      <legend>Find by coordinates</legend>
+      <label>Latitude <input name="latitude" type="number" min="-90" max="90" step="any" required></label>
+      <label>Longitude <input name="longitude" type="number" min="-180" max="180" step="any" required></label>
+      <button type="submit">Find region codes</button>
+    </fieldset>
+  </form>
   <div data-map role="region" aria-label="Repeater region map"></div>
   <p data-map-note></p>
-  <p data-timestamp></p>
-  <p>Thank you Caboosey <a href="https://regions.caboosey.net">for providing this data.</a>
   <div data-result></div>
   <p data-copy-status role="status" aria-live="polite"></p>
-  <noscript>Enable JavaScript to use the map and command generator. See the manual instructions below.</noscript>
+  <noscript>Enable JavaScript to use the map and command generator.</noscript>
 </div>
 
 ### Thank you for helping the Gulf Coast Mesh.

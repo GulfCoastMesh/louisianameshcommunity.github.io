@@ -72,8 +72,57 @@ def validate_geometry(geometry):
                     raise ValueError("Invalid longitude/latitude: " + repr(position))
 
 
+def geometry_bounds(geometry):
+    """GeoJSON bbox order: west, south, east, north (longitude, latitude)."""
+    if geometry["type"] == "GeometryCollection":
+        bounds = [geometry_bounds(child) for child in geometry["geometries"]]
+        return [min(b[0] for b in bounds), min(b[1] for b in bounds),
+                max(b[2] for b in bounds), max(b[3] for b in bounds)]
+    polygons = [geometry["coordinates"]] if geometry["type"] == "Polygon" else geometry["coordinates"]
+    positions = [point for polygon in polygons for ring in polygon for point in ring]
+    return [min(p[0] for p in positions), min(p[1] for p in positions),
+            max(p[0] for p in positions), max(p[1] for p in positions)]
+
+
+def normalize_snapshot(snapshot, policy):
+    """Apply local naming policy while retaining all source boundary coverage."""
+    aliases = policy.get("aliases", {})
+    regions = {}
+    for source in snapshot["regions"]:
+        region = dict(source)
+        region["id"] = aliases.get(region["id"], region["id"])
+        code = region["id"]
+        if code in regions:
+            existing = regions[code]
+            # Both names can coexist upstream during a rename. Keep their union.
+            if existing["geometry"] != region["geometry"]:
+                geometry = "local:merged:" + code
+                snapshot["geometries"][geometry] = {
+                    "type": "GeometryCollection", "geometries": [
+                        snapshot["geometries"][existing["geometry"]],
+                        snapshot["geometries"][region["geometry"]],
+                    ]}
+                existing["geometry"] = geometry
+            # Prefer canonical metadata when both names are present.
+            if source["id"] == code:
+                region["geometry"] = existing["geometry"]
+                regions[code] = region
+        else:
+            regions[code] = region
+    snapshot["regions"] = list(regions.values())
+    for area in policy["areas"]:
+        region = regions.get(area["id"])
+        # A missing boundary is explicit, never inferred from a nearby city or parent.
+        area["location"] = None if region is None else {
+            "geometry": region["geometry"],
+            "bbox": geometry_bounds(snapshot["geometries"][region["geometry"]]),
+        }
+    snapshot["policy"] = policy
+    return snapshot
+
+
 def build_snapshot(fetch=fetch_json):
-    policy = json.loads((ROOT / "scripts/region-policy.json").read_text())
+    policy = json.loads((ROOT / "docs/regions.json").read_text())["policy"]
     manifest = fetch(INDEX_URL)
     entries = manifest.get("regions")
     if not isinstance(entries, list) or not entries:
@@ -93,9 +142,10 @@ def build_snapshot(fetch=fetch_json):
             if flag in entry and not isinstance(entry[flag], bool):
                 raise ValueError("Invalid " + flag + ": " + code)
         urls.append(urljoin(INDEX_URL, entry["file"]))
-    required = {area["id"] for area in policy["areas"]}
-    if not required <= seen:
-        raise ValueError("Index is missing supported local areas")
+    required = {area["id"] for area in policy["areas"] if area.get("required")}
+    canonical_seen = {policy.get("aliases", {}).get(code, code) for code in seen}
+    if not required <= canonical_seen:
+        raise ValueError("Index is missing supported local areas: " + ", ".join(sorted(required - canonical_seen)))
     unique_urls = sorted(set(urls))
     with ThreadPoolExecutor(max_workers=6) as pool:
         sources = dict(zip(unique_urls, pool.map(fetch, unique_urls)))
@@ -120,24 +170,36 @@ def build_snapshot(fetch=fetch_json):
         "optional": entry.get("optional", False), "visible": entry.get("visible", True),
         "geometry": url,
     } for entry, url in zip(entries, urls)]
+    snapshot = normalize_snapshot({"version": 1, "source": INDEX_URL,
+        "retrievedAt": datetime.now(timezone.utc).isoformat(),
+        "regions": regions, "geometries": geometries}, policy)
     for area in policy["areas"]:
-        region = next(item for item in regions if item["id"] == area["id"])
-        if region["optional"] or region["status"] not in policy["allowedStatuses"]:
+        region = next((item for item in snapshot["regions"] if item["id"] == area["id"]), None)
+        if region and (region["optional"] or region["status"] not in policy["allowedStatuses"]):
             raise ValueError("Supported area is no longer approved: " + area["id"])
-    return {"version": 1, "source": INDEX_URL,
-            "retrievedAt": datetime.now(timezone.utc).isoformat(),
-            "policy": policy, "regions": regions, "geometries": geometries}
+    return snapshot
+
+
+def write_snapshot(snapshot, stream):
+    # Keep the editable rules readable without expanding millions of coordinates.
+    header = {key: value for key, value in snapshot.items() if key not in ("regions", "geometries")}
+    stream.write(json.dumps(header, indent=2, allow_nan=False)[:-2])
+    stream.write(',\n  "regions": ')
+    json.dump(snapshot["regions"], stream, indent=2, allow_nan=False)
+    stream.write(',\n  "geometries": ')
+    json.dump(snapshot["geometries"], stream, separators=(",", ":"), allow_nan=False)
+    stream.write("\n}\n")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "docs/assets/data/regions.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "docs/regions.json")
     args = parser.parse_args()
     snapshot = build_snapshot()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     # Replace only after the entire snapshot has passed validation.
     with tempfile.NamedTemporaryFile(mode="w", dir=args.output.parent, delete=False) as temporary:
-        json.dump(snapshot, temporary, separators=(",", ":"), allow_nan=False)
+        write_snapshot(snapshot, temporary)
         path = Path(temporary.name)
     path.replace(args.output)
     print("Validated {} regions; wrote {}".format(len(snapshot["regions"]), args.output))

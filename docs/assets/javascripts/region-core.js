@@ -37,13 +37,27 @@
     }
     return data.regions.filter(region => contains([lon, lat], data.geometries[region.geometry]));
   }
-  function configure(data, matches, selectedArea) {
+  function configure(data, matches, selectedAreas) {
+    const canonical = code => (data.policy.aliases || {})[code] || code;
     const approved = matches.filter(region => !region.optional && data.policy.allowedStatuses.includes(region.status));
-    const areas = data.policy.areas.filter(area => matches.some(region => region.id === area.id));
-    if (!approved.length) return {state: "unsupported", areas: []};
-    const area = areas.find(item => item.id === selectedArea) || (areas.length === 1 ? areas[0] : null);
-    if (areas.length > 1 && !area) return {state: "choose", areas};
-    const allowed = [...new Set(approved.map(region => region.id).concat(area ? [area.meshmapper] : []))].sort();
+    const suggested = data.policy.areas.filter(area => approved.some(region => canonical(region.id) === area.id));
+    const selected = selectedAreas === undefined ? suggested.map(area => area.id) : selectedAreas;
+    if (!Array.isArray(selected) || selected.some(id => !data.policy.areas.some(area => area.id === id))) {
+      throw new Error("Choose a known local area.");
+    }
+    const areas = data.policy.areas.filter(area => selected.includes(area.id));
+    if (!approved.length && !areas.length) return {state: "unsupported", areas: [], suggested};
+    // Local areas are controlled by the selection; broader geographic scopes remain automatic.
+    const localCodes = new Set(data.policy.areas.flatMap(area =>
+      [area.id, ...(area.codes || []), area.meshmapper].filter(Boolean)));
+    const codes = approved.map(region => canonical(region.id)).filter(code => !localCodes.has(code));
+    for (const area of areas) {
+      codes.push(...(area.codes || [area.id]));
+      if (area.meshmapper) codes.push(area.meshmapper);
+      if (area.louisiana) codes.push(...data.policy.louisianaCodes);
+    }
+    const allowed = [...new Set(codes)].sort();
+    if (!allowed.length) return {state: "unsupported", areas, suggested};
     for (const code of allowed) {
       if (!/^[a-z0-9][a-z0-9-]{0,30}$/.test(code)) throw new Error("Invalid region code in data; commands unavailable.");
     }
@@ -61,7 +75,7 @@
     }
     if (batch.length) commands.push(definition(batch));
     commands.push("region save");
-    return {state: "ready", areas, area, allowed, commands,
+    return {state: "ready", areas, suggested, allowed, commands,
       verification: allowed.map(code => `region get ${code}`)};
   }
   const api = {contains, matchesAt, configure};

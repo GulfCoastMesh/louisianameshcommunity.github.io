@@ -3,7 +3,7 @@ const {chromium} = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const base = process.env.REGION_TEST_URL || 'http://127.0.0.1:8767';
-const snapshot = JSON.parse(fs.readFileSync('docs/assets/data/regions.json'));
+const snapshot = JSON.parse(fs.readFileSync('docs/regions.json'));
 
 (async () => {
   const browser = await chromium.launch({headless:true});
@@ -14,18 +14,18 @@ const snapshot = JSON.parse(fs.readFileSync('docs/assets/data/regions.json'));
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base + '/region-codes/');
     await page.waitForSelector('.leaflet-control-zoom');
-    await page.locator('fieldset:not([disabled])').waitFor();
+    await page.locator('form fieldset:not([disabled])').waitFor();
     async function locate(lat, lon) {
       await page.locator('[name=latitude]').fill(String(lat));
       await page.locator('[name=longitude]').fill(String(lon));
       await page.getByRole('button', {name:'Find region codes'}).click();
     }
     await locate(29.9511,-90.0715);
-    assert.match(await page.locator('[data-status]').innerText(), /Configuration for Gulf Coast Louisiana/);
+    assert.match(await page.locator('[data-status]').innerText(), /Configuration for Baton Rouge–Mississippi state line/);
     const commands = await page.locator('[data-result] > ol code').allTextContents();
     assert.equal(commands.length,2);
     assert.ok(commands[0].startsWith('region def '));
-    assert.ok(commands[0].includes('gc-la-msy-mm'));
+    assert.ok(commands[0].includes('us-la-msy-mm'));
     assert.ok(commands.every(command => !command.includes('denyf')));
     assert.equal(commands.at(-1),'region save');
     await page.getByRole('button', {name:'Copy region save',exact:true}).click();
@@ -35,7 +35,7 @@ const snapshot = JSON.parse(fs.readFileSync('docs/assets/data/regions.json'));
     assert.match(await page.locator('[data-copy-status]').innerText(), /command is selected/);
     await locate(30.2241,-92.0198);
     assert.match(await page.locator('[data-status]').innerText(), /Lafayette/);
-    assert.ok(!(await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('gc-la-msy-mm'));
+    assert.ok(!(await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-la-msy-mm'));
     await locate(33.7490,-84.3880);
     assert.ok((await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-ga-atl'));
     assert.match(await page.locator('[data-result]').innerText(), /No MeshMapper code is known/);
@@ -53,25 +53,32 @@ const snapshot = JSON.parse(fs.readFileSync('docs/assets/data/regions.json'));
     await page.evaluate(() => window.dispatchEvent(new Event('resize')));
     await map.scrollIntoViewIfNeeded();
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
-    await page.screenshot({path:(process.env.REGION_SCREENSHOT_DIR || '/private/tmp') + '/region-map-mobile.png'});
+    await page.screenshot({path:(process.env.REGION_SCREENSHOT_DIR || '/tmp') + '/region-map-mobile.png'});
     await page.evaluate(() => document.body.setAttribute('data-md-color-scheme','slate'));
     assert.equal(await page.locator('[data-map] .leaflet-control-zoom').isVisible(), true);
-    await page.screenshot({path:(process.env.REGION_SCREENSHOT_DIR || '/private/tmp') + '/region-map-dark.png'});
+    await page.screenshot({path:(process.env.REGION_SCREENSHOT_DIR || '/tmp') + '/region-map-dark.png'});
     assert.deepEqual(errors, []);
 
-    // Simulate overlapping supported regions and ensure no commands appear until a choice.
+    // Overlapping regions include both messaging and MeshMapper codes.
     const overlap = structuredClone(snapshot);
-    overlap.regions.find(r => r.id === 'us-gpt').geometry = overlap.regions.find(r => r.id === 'us-msy').geometry;
-    await page.route('**/assets/data/regions.json', route => route.fulfill({json:overlap}));
+    overlap.regions.find(r => r.id === 'us-ms-gpt').geometry = overlap.regions.find(r => r.id === 'us-la-msy').geometry;
+    await page.route('**/regions.json', route => route.fulfill({json:overlap}));
     await page.reload();
-    await page.locator('fieldset:not([disabled])').waitFor();
+    await page.locator('form fieldset:not([disabled])').waitFor();
     await locate(29.9511,-90.0715);
-    assert.equal(await page.locator('[data-result] button').count(),0);
-    await page.locator('[data-result] select').selectOption('us-gpt');
+    assert.ok((await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-la-msy-mm'));
     assert.ok((await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-ms-gpt-mm'));
 
+    assert.equal(await page.locator('[data-areas]').count(), 0);
+    await locate(30.2241,-92.0198);
+    const updatedCommands = (await page.locator('[data-result] > ol code').allTextContents()).join(' ');
+    assert.ok(updatedCommands.includes('gc-la-lft-mm'));
+    assert.ok(!updatedCommands.includes('us-la-msy-mm'));
+    const publicData = await (await context.request.get(base + '/regions.json')).json();
+    assert.ok(publicData.policy.areas.some(area => area.id === 'us-la-sja'));
+
     const failed = await context.newPage();
-    await failed.route('**/assets/data/regions.json', route => route.fulfill({status:503,body:'unavailable'}));
+    await failed.route('**/regions.json', route => route.fulfill({status:503,body:'unavailable'}));
     await failed.goto(base + '/region-codes/');
     await failed.waitForFunction(() => document.querySelector('[data-status]').textContent.includes('unavailable'));
     assert.equal(await failed.getByRole('button', {name:'Find region codes'}).isDisabled(),true);

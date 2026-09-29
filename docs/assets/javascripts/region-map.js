@@ -68,40 +68,24 @@
       });
       return list;
     }
-    function render(selectedArea) {
+    function render() {
       result.replaceChildren();
       feedback.textContent = "";
-      const config = RegionCore.configure(data, matches, selectedArea);
+      const config = RegionCore.configure(data, matches);
       const location = `${selectedPoint.lat.toFixed(5)}, ${selectedPoint.lng.toFixed(5)}`;
       if (config.state === "unsupported") {
         say("No approved regions were found at this location. No commands generated.");
         result.append(element("p", "Move the marker or enter another location. Proposed, optional, and uncoordinated regions are not automatically configured."));
         return;
       }
-      if (config.areas.length > 1) {
-        const label = element("label", "This location touches more than one local area. Choose your local MeshMapper area: ");
-        const select = element("select");
-        select.append(new Option("Choose an area…", ""));
-        config.areas.forEach(area => select.append(new Option(area.name, area.id)));
-        select.value = selectedArea || "";
-        select.addEventListener("change", () => render(select.value));
-        label.append(select);
-        result.append(label);
-      }
-      if (config.state === "choose") {
-        say("Choose a local area to generate commands for " + location + ".");
-        return;
-      }
-      say("Configuration for " + (config.area ? config.area.name + " at " : "") + location + ".");
+      say("Configuration for " + (config.areas.length ? config.areas.map(area => area.name).join("; ") + " — " : "") + location + ".");
       result.append(element("h4", "Regions in area:"));
       result.append(element("p", "Allow: " + config.allowed.join(", ")));
       if (!config.allowed.some(code => code.endsWith("-mm"))) {
         result.append(element("p", "No MeshMapper code is known for this location."));
       }
-      const regionNames = matches.filter(region => config.allowed.includes(region.id))
-        .map(region => `${region.name} (${region.id})`).join("; ");
       result.append(element("h4", config.commands.length === 2 ? "Set your regions, then save" : "Set your regions in batches, then save"));
-      result.append(element("p", "Log into your repeater and open Command Line or Terminal."));
+      result.append(element("p", "Log into your repeater and open Command Line or Terminal. Use these codes on repeaters only, not companions. Leave * (unscoped) allowed."));
       if (config.commands.length > 2) {
         result.append(element("p", "This list exceeds one command’s length limit, so it is split into batches. Run every region def command in order before saving."));
       }
@@ -146,7 +130,7 @@
       });
     }
     try {
-      const response = await fetch(new URL("data/regions.json", assetBase), {signal: AbortSignal.timeout(30000)});
+      const response = await fetch(new URL("../regions.json", assetBase), {signal: AbortSignal.timeout(30000)});
       if (!response.ok) throw new Error("Region data is unavailable (HTTP " + response.status + ").");
       data = await response.json();
       if (data.version !== 1 || !data.regions?.length || !data.policy?.areas?.length || !data.geometries ||

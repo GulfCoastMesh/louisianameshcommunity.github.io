@@ -1,8 +1,34 @@
 # Region map maintenance
 
-The map on `region-codes.md` reads the generated `docs/assets/data/regions.json` snapshot. It never requests the upstream API from the visitor's browser.
+[`docs/regions.json`](../docs/regions.json) is the single source of truth, published as
+<https://docs.gulfcoastmesh.org/regions.json>. It is committed to the repository.
+The browser map, command generator, and refresh script all use this file.
+There is no separate policy file or second snapshot.
 
-Before previewing or building locally:
+## Editing the source
+
+Edit `policy` at the top of `docs/regions.json`:
+
+- `aliases` translates upstream IDs into the community's approved codes.
+- `louisianaCodes` supplies the common codes for Louisiana area selections.
+- `areas` defines selectable areas, optional additional messaging `codes`, and `meshmapper` codes.
+  `louisiana` adds the common codes; `required` requires that area in the upstream map.
+  Areas without geometry remain in the reference catalog but are not selected automatically.
+- `allowedStatuses` lists upstream coordination statuses accepted for automatic suggestions.
+
+`regions` contains normalized upstream records; each `geometry` references an entry in
+`geometries`. `retrievedAt` records the geographic data refresh time. Consumers should use
+`policy.areas` for the full selectable-area catalog, including areas without mapped boundaries.
+Each area's generated `location` contains a `geometry` key into the embedded `geometries`
+object and a GeoJSON `bbox` in `[west, south, east, north]` order (longitude/latitude degrees).
+Resolve a boundary as `data.geometries[area.location.geometry]`; no second download is needed.
+`location: null` means no confirmed boundary is available. New Orleans and Baton Rouge identify
+`parentArea: "us-la-msy"`; the parent's boundary is not presented as their exact boundary.
+Refreshes regenerate `location` from normalized source geometry; edit rules, not generated locations.
+
+The Lafayette MeshMapper override deliberately retains `gc-la-lft-mm` from the community list.
+
+## Refresh and verification
 
 ```sh
 python scripts/sync_regions.py
@@ -11,14 +37,33 @@ node --test tests/region-core.test.cjs
 mkdocs serve
 ```
 
-The deployment workflow fetches and validates a complete snapshot on pushes, manual runs, and daily at 10:17 UTC. An upstream failure stops the deployment and preserves the previously published site. The snapshot is a generated, ignored build input; do not commit it or edit the generated `site/` directory. For an offline rebuild, an already generated snapshot can be reused; its retrieval time remains visible.
+The refresh script preserves the file's policy and replaces geographic data only after a
+complete validated fetch. It accepts old and canonical upstream IDs, merges equivalent
+boundary coverage, and fails if a required area disappears or a supported area loses approval.
+`--output PATH` writes a preview snapshot while still reading policy from `docs/regions.json`.
+Failed refreshes preserve the existing file. An offline build can use the committed snapshot.
 
-`region-policy.json` owns the four additional community-approved MeshMapper mappings and accepted coordination statuses. Configuration works anywhere with an approved matching API region, including API-provided MeshMapper codes. The API index owns region IDs, names, optional flags, and status; GeoJSON supplies boundaries only. Shared geometry files are downloaded once. Hidden layers still participate in selection. New proposed or unknown statuses are not automatically approved. If a mapped local region disappears or loses approval, synchronization fails for review. Overlaps between the four additional mappings require the visitor to select one; other matching API codes are still included.
+Deployment refreshes data on pushes, manual runs, and daily at 10:17 UTC. An upstream failure
+stops deployment and leaves the published site intact. MkDocs copies `regions.json` to the
+site root. Do not edit the generated `site/` directory.
 
-The US boundary uses unwrapped longitudes across Alaska's antimeridian. These are preserved (within ±360°), and selection checks equivalent longitude copies; manually entered coordinates still use the standard ±180° range.
+## Selection and commands
 
-The generator uses `region def` to define and flood-allow the matching codes, with `|*` separators keeping them directly under `*`, followed by `region save`. Lists are packed into commands of at most 159 ASCII characters to leave a terminator in the 160-byte CLI buffer; every batch starts at `*`. It never emits deny commands. Updating an existing entry puts it under `*` and enables flooding. It does not reset other entries or change global/default/home scope. The page includes manual `region put`/`region allowf` instructions for firmware without `region def`. Before claiming physical-device verification, run a generated sequence on a test repeater, inspect each `region get` response, and confirm persistence after reboot.
+Map clicks and coordinate entry automatically select matching areas. Each matching area's messaging and MeshMapper codes
+are combined and deduplicated. New Orleans and Baton Rouge inherit the broader MSY codes.
+Hidden approved map layers participate; proposed and optional scopes are not automatically added.
+Other approved geographic scopes remain included.
 
-Map assets use pinned Leaflet 1.9.4 with integrity checks and OpenStreetMap attribution. Coordinate lookup works if Leaflet or map tiles are unavailable, provided the snapshot loaded. No coordinates are sent to a geocoding service.
+`region def` enables the selected scopes, with `|*` separators keeping them under `*`, followed
+by `region save`. Commands fit within 159 ASCII characters. Existing unrelated entries are not
+removed, and unscoped `*` should remain allowed. These instructions are for repeaters only.
+Physical-device verification requires running commands on a test repeater, checking `region get`
+responses, and confirming persistence after reboot.
 
-Optional browser checks: with Playwright and its Chromium browser installed, serve a built site and run `REGION_TEST_URL=http://127.0.0.1:8767 node tests/region-browser.cjs`. The test covers copy/fallback, map clicks, overlap, mobile/dark appearance, repeated selections, and failed data/library loads. Screenshots go to `/private/tmp` by default; set `REGION_SCREENSHOT_DIR` to change that location.
+Leaflet 1.9.4 is pinned with integrity checks and OpenStreetMap attribution. Coordinate lookup works without Leaflet if `regions.json` loaded. Alaska's unwrapped antimeridian
+coordinates are preserved and equivalent longitude copies are checked during lookup.
+
+Optional browser checks: with Playwright and Chromium installed, serve a built site and run
+`REGION_TEST_URL=http://127.0.0.1:8767 node tests/region-browser.cjs`. Checks cover the public
+JSON, overlapping regions, map clicks, copy/fallback, mobile/dark appearance, and
+failed data/library loads. Screenshots default to `/tmp`; override with `REGION_SCREENSHOT_DIR`.
