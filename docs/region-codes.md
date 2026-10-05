@@ -3,7 +3,7 @@
 > **Gulf Coast Mesh MSY update:** The current MSY-specific code is `us-la-msy`; the community dropped
 > `us-la-msy-mm` because MM codes use too much byte space. If a repeater is having issues, you can
 > remove `us-la-msy-mm` and the older `gc-la-msy-mm` if present. The map below now recommends
-> `us-la-msy` without an MSY MeshMapper code. Other local areas may still use MeshMapper codes.
+> `us-la-msy` without an MSY MeshMapper code.
 
 ## What is region coding?
 
