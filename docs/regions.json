@@ -8,7 +8,8 @@
       "us-msy": "us-la-msy",
       "us-lft": "us-la-lft",
       "us-lch": "us-la-lc",
-      "gc-la-msy-mm": "us-la-msy-mm",
+      "us-la-msy-mm": "us-la-msy",
+      "gc-la-msy-mm": "us-la-msy",
       "us-la-lft-mm": "gc-la-lft-mm",
       "us-gpt": "us-ms-gpt"
     },
@@ -39,7 +40,6 @@
       {
         "id": "us-la-msy",
         "name": "Baton Rouge\u2013Mississippi state line (MSY)",
-        "meshmapper": "us-la-msy-mm",
         "louisiana": true,
         "required": true,
         "location": {
@@ -59,7 +59,6 @@
           "us-la-msy",
           "us-la-gno"
         ],
-        "meshmapper": "us-la-msy-mm",
         "louisiana": true,
         "parentArea": "us-la-msy",
         "location": null
@@ -71,7 +70,6 @@
           "us-la-msy",
           "us-la-btr"
         ],
-        "meshmapper": "us-la-msy-mm",
         "louisiana": true,
         "parentArea": "us-la-msy",
         "location": null

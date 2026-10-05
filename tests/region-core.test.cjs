@@ -36,7 +36,7 @@ test('broad hidden and API MeshMapper matches included, unapproved/optional scop
     region('proposal', {status:'proposed'}), region('extrapolated', {status:'extrapolated_external'}),
     region('unknown', {status:'unknown'}), region('optional', {optional:true}), region('other-mm'), region('us-msy')];
   const result = configure(data, matches);
-  assert.deepEqual(result.allowed, ['other-mm','us','us-east','us-gc','us-la','us-la-msy','us-la-msy-mm','us-south','us-southeast']);
+  assert.deepEqual(result.allowed, ['other-mm','us','us-east','us-gc','us-la','us-la-msy','us-south','us-southeast']);
   assert.equal(result.commands.at(-1), 'region save');
   assert.equal(result.commands.some(c => c.includes('denyf') || c.includes('remove')), false);
   assert.equal(result.commands.some(c => /default|home|radio/.test(c)), false);
@@ -49,13 +49,14 @@ test('all local mappings use exact policy codes', () => {
     assert.equal(result.verification.length, result.allowed.length);
   }
 });
-test('overlap combines both messaging and MeshMapper codes', () => {
+test('overlap combines current local codes and MeshMapper codes only where configured', () => {
   const matches = [region('us-msy'), region('us-ms-gpt')];
   const result = configure(data, matches);
   assert.equal(result.state, 'ready');
-  for (const code of ['us-la-msy', 'us-la-msy-mm', 'us-ms-gpt', 'us-ms-gpt-mm']) {
+  for (const code of ['us-la-msy', 'us-ms-gpt', 'us-ms-gpt-mm']) {
     assert.ok(result.allowed.includes(code), code);
   }
+  assert.ok(!result.allowed.includes('us-la-msy-mm'));
   const selected = configure(data, matches, ['us-ms-gpt']);
   assert.ok(!selected.allowed.includes('us-la-msy'));
   assert.ok(!selected.allowed.includes('us-la-msy-mm'));
@@ -110,14 +111,19 @@ test('live snapshot resolves local and wider city centers', {skip: !fs.existsSyn
     const result = configure(snapshot, matches);
     assert.equal(result.state, 'ready');
     assert.ok(result.allowed.includes('us'));
+    if (code === 'us-la-msy') {
+      assert.ok(result.allowed.includes('us-la-msy'));
+      assert.ok(!result.allowed.includes('us-la-msy-mm'));
+      assert.ok(!result.allowed.includes('gc-la-msy-mm'));
+    }
   }
 });
 
 test('Louisiana manual choices match the supplied reference exactly', () => {
   const cases = {
-    'us-la-msy': ['us-la-msy', 'us-la-msy-mm'],
-    'us-la-gno': ['us-la-msy', 'us-la-gno', 'us-la-msy-mm'],
-    'us-la-btr': ['us-la-msy', 'us-la-btr', 'us-la-msy-mm'],
+    'us-la-msy': ['us-la-msy'],
+    'us-la-gno': ['us-la-msy', 'us-la-gno'],
+    'us-la-btr': ['us-la-msy', 'us-la-btr'],
     'us-la-lft': ['us-la-lft', 'gc-la-lft-mm'],
     'us-la-lc': ['us-la-lc', 'us-la-lc-mm'],
     'us-la-mlu': ['us-la-mlu', 'us-la-mlu-mm'],
@@ -132,10 +138,18 @@ test('Louisiana manual choices match the supplied reference exactly', () => {
 });
 test('manual boundaries combine areas and deduplicate inherited scopes', () => {
   const result = configure(data, [], ['us-la-msy', 'us-la-gno', 'us-la-lft', 'us-la-sja']);
-  assert.ok(result.allowed.includes('us-la-msy-mm'));
+  assert.ok(!result.allowed.includes('us-la-msy-mm'));
   assert.ok(result.allowed.includes('gc-la-lft-mm'));
   assert.ok(result.allowed.includes('us-la-sja'));
   assert.equal(result.allowed.filter(code => code === 'us-la-msy').length, 1);
+});
+test('retired MSY MeshMapper codes canonicalize without being recommended', () => {
+  const matches = [region('us-la-msy'), region('us-la-msy-mm'), region('gc-la-msy-mm')];
+  const result = configure(data, matches);
+  assert.equal(result.state, 'ready');
+  assert.ok(result.allowed.includes('us-la-msy'));
+  assert.ok(!result.allowed.includes('us-la-msy-mm'));
+  assert.ok(!result.allowed.includes('gc-la-msy-mm'));
 });
 test('legacy aliases are canonical in results and verification', () => {
   for (const [legacy, canonical] of Object.entries(policy.aliases)) {

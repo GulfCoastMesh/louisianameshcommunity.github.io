@@ -27,6 +27,7 @@ Resolve a boundary as `data.geometries[area.location.geometry]`; no second downl
 Refreshes regenerate `location` from normalized source geometry; edit rules, not generated locations.
 
 The Lafayette MeshMapper override deliberately retains `gc-la-lft-mm` from the community list.
+The MSY-specific code is `us-la-msy`; map `us-la-msy-mm` and `gc-la-msy-mm` to that code, and do not set an MSY `meshmapper` override. Keep unrelated local MeshMapper codes unchanged.
 
 ## Refresh and verification
 
