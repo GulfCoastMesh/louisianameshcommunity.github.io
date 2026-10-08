@@ -9,7 +9,9 @@
 
 ### How to switch to our MeshCore Frequency [Settings](freq-settings.md).
 
-### Channels we use in Louisiana for our network [here](channels.md).
+### How to set region codes [here](region-codes.md).
+
+### Channels we use in the Gulf Coast for our network [here](channels.md).
 
 ### Shopping for your first Meshtastic/MeshCore device, or perhaps looking to pick up another? View our recommended devices [here](devicerecs.md).
 
