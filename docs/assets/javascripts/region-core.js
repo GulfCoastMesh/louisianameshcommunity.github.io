@@ -61,19 +61,8 @@
     for (const code of allowed) {
       if (!/^[a-z0-9][a-z0-9-]{0,30}$/.test(code)) throw new Error("Invalid region code in data; commands unavailable.");
     }
-    const commands = [];
-    const definition = codes => "region def " + codes.join("|* ");
-    let batch = [];
-    for (const code of allowed) {
-      // Stay within the 160-byte CLI buffer, leaving room for its terminator.
-      // Each line starts at *, and each |* returns to * before the next code.
-      if (batch.length && definition([...batch, code]).length > 159) {
-        commands.push(definition(batch));
-        batch = [];
-      }
-      batch.push(code);
-    }
-    if (batch.length) commands.push(definition(batch));
+    // One region per command so each can be run and checked individually.
+    const commands = allowed.map(code => `region def ${code}`);
     commands.push("region save");
     return {state: "ready", areas, suggested, allowed, commands,
       verification: allowed.map(code => `region get ${code}`)};
