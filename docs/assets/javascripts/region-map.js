@@ -84,12 +84,10 @@
       if (!config.allowed.some(code => code.endsWith("-mm"))) {
         result.append(element("p", "No MeshMapper code is known for this location."));
       }
-      result.append(element("h4", config.commands.length === 2 ? "Set your regions, then save" : "Set your regions in batches, then save"));
+      result.append(element("h4", "Set each region, then save"));
       result.append(element("p", "Log into your repeater and open Command Line or Terminal. Use these codes on repeaters only, not companions. Leave * (unscoped) allowed."));
-      if (config.commands.length > 2) {
-        result.append(element("p", "This list exceeds one command’s length limit, so it is split into batches. Run every region def command in order before saving."));
-      }
-      result.append(element("p", "Wait for each reply. If any command returns an error, stop before saving and resolve it; a failed command may have applied only part of the list."));
+      result.append(element("p", "Run each region def command one at a time, in order, then finish with region save."));
+      result.append(element("p", "Wait for each reply. If any command returns an error, stop before saving and resolve it."));
       result.append(commandList(config.commands));
       const verification = element("details");
       verification.append(element("summary", "Verify the saved settings"));

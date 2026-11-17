@@ -74,25 +74,14 @@ test('API MeshMapper codes beyond local mappings are allowed', () => {
   const result = configure(data, [region('us-ms-ne'), region('us-ms-ne-mm')]);
   assert.equal(result.state,'ready');
   assert.deepEqual(result.allowed,['us-ms-ne','us-ms-ne-mm']);
-  assert.deepEqual(result.commands,['region def us-ms-ne|* us-ms-ne-mm', 'region save']);
+  assert.deepEqual(result.commands,['region def us-ms-ne', 'region def us-ms-ne-mm', 'region save']);
 });
-test('single region and long lists produce flat, complete definitions within the CLI buffer', () => {
+test('each region gets its own definition command, followed by one save', () => {
   assert.deepEqual(configure(data, [region('us')]).commands, ['region def us', 'region save']);
   const matches = Array.from({length:20}, (_, i) => region(`region-${String(i).padStart(2,'0')}-${'x'.repeat(21)}`));
   const result = configure(data, matches);
-  const definitions = result.commands.slice(0,-1);
-  assert.ok(definitions.length > 1);
-  const decoded = [];
-  for (const line of definitions) {
-    assert.ok(line.length <= 159);
-    assert.ok(line.startsWith('region def '));
-    const tokens = line.slice('region def '.length).split(' ');
-    tokens.forEach((token, i) => {
-      if(i < tokens.length - 1) assert.ok(token.endsWith('|*'));
-      decoded.push(token.replace(/\|\*$/, ''));
-    });
-  }
-  assert.deepEqual(decoded,result.allowed);
+  assert.deepEqual(result.commands.slice(0,-1), result.allowed.map(code => `region def ${code}`));
+  for (const line of result.commands) assert.ok(line.length <= 159);
   assert.equal(result.commands.at(-1),'region save');
   assert.equal(result.commands.filter(line => line === 'region save').length,1);
 });

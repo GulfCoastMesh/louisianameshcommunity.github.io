@@ -55,8 +55,8 @@ are combined and deduplicated. New Orleans and Baton Rouge inherit the broader M
 Hidden approved map layers participate; proposed and optional scopes are not automatically added.
 Other approved geographic scopes remain included.
 
-`region def` enables the selected scopes, with `|*` separators keeping them under `*`, followed
-by `region save`. Commands fit within 159 ASCII characters. Existing unrelated entries are not
+Each selected scope gets its own `region def <code>` command, run one at a time, followed by a
+single `region save`. Existing unrelated entries are not
 removed, and unscoped `*` should remain allowed. These instructions are for repeaters only.
 Physical-device verification requires running commands on a test repeater, checking `region get`
 responses, and confirming persistence after reboot.
