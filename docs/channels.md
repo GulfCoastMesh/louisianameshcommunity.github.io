@@ -2,6 +2,8 @@
 
 ### This is a list of channels that we use on our network to help organize conversations.
 
+Every hashtag and private channel needs a region scope, except `#dx`. See [channel scopes](region-codes.md#channel-scopes) for the scope to set on each one.
+
 
 #### News Channel
 

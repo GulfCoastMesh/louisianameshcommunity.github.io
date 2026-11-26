@@ -78,14 +78,29 @@
         result.append(element("p", "Move the marker or enter another location. Proposed, optional, and uncoordinated regions are not automatically configured."));
         return;
       }
-      say("Configuration for " + (config.areas.length ? config.areas.map(area => area.name).join("; ") + " — " : "") + location + ".");
+      const names = [...config.areas, ...config.groups].map(item => item.name);
+      say("Configuration for " + (names.length ? names.join("; ") + " — " : "") + location + ".");
       result.append(element("h4", "Regions in area:"));
       result.append(element("p", "Allow: " + config.allowed.join(", ")));
-      if (!config.allowed.some(code => code.endsWith("-mm"))) {
-        result.append(element("p", "No MeshMapper code is known for this location."));
+      result.append(element("p", config.meshmapper.length
+        ? "MeshMapper codes included: " + config.meshmapper.join(", ")
+        : "No MeshMapper code is known for this location."));
+      if (config.extras.length) {
+        const extras = element("div");
+        extras.dataset.extras = "";
+        extras.append(element("h4", "Add only if it fits"));
+        extras.append(element("p", "These depend on exactly where the repeater is. Run the ones that fit along with the others, before region save."));
+        const list = element("ul", undefined, "region-extras");
+        config.extras.forEach(extra => {
+          const item = element("li");
+          item.append(element("p", extra.note + ":"), commandList(extra.commands));
+          list.append(item);
+        });
+        extras.append(list);
+        result.append(extras);
       }
       result.append(element("h4", "Set each region, then save"));
-      result.append(element("p", "Log into your repeater and open Command Line or Terminal. Use these codes on repeaters only, not companions. Leave * (unscoped) allowed."));
+      result.append(element("p", "Log into your repeater and open Command Line or Terminal. Use these codes on repeaters only, not companions. Leave * (unscoped) allowed and leave the default scope empty."));
       result.append(element("p", "Run each region def command one at a time, in order, then finish with region save."));
       result.append(element("p", "Wait for each reply. If any command returns an error, stop before saving and resolve it."));
       result.append(commandList(config.commands));

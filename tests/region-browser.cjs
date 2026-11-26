@@ -28,8 +28,14 @@ const snapshot = JSON.parse(fs.readFileSync('docs/regions.json'));
     assert.ok(commands.join(' ').includes('us-la-msy'));
     assert.ok(!commands.join(' ').includes('us-la-msy-mm'));
     assert.ok(!commands.join(' ').includes('gc-la-msy-mm'));
+    assert.ok(!commands.join(' ').includes('us-east'));
     assert.ok(commands.every(command => !command.includes('denyf')));
     assert.equal(commands.at(-1),'region save');
+    assert.match(await page.locator('[data-result]').innerText(), /MeshMapper codes included: us-la-msy/);
+    // Sub-area codes the map can't place are offered separately, not in the main list.
+    const extras = await page.locator('[data-extras] code').allTextContents();
+    assert.deepEqual(extras, ['region def us-la-gno', 'region def us-la-btr', 'region def us-la-sja']);
+    assert.ok(extras.every(command => !commands.includes(command)));
     await page.getByRole('button', {name:'Copy region save',exact:true}).click();
     assert.equal(await page.evaluate(() => navigator.clipboard.readText()), 'region save');
     await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', {configurable:true, value:{writeText:async () => {throw new Error('denied');}}}));
@@ -38,6 +44,10 @@ const snapshot = JSON.parse(fs.readFileSync('docs/regions.json'));
     await locate(30.2241,-92.0198);
     assert.match(await page.locator('[data-status]').innerText(), /Lafayette/);
     assert.ok(!(await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-la-msy-mm'));
+    await locate(30.6954,-88.0399);
+    assert.match(await page.locator('[data-status]').innerText(), /Alabama Gulf Coast/);
+    const mobile = (await page.locator('[data-result] > ol code').allTextContents()).slice(0,-1).map(command => command.slice(11));
+    assert.deepEqual(mobile, ['us','us-al','us-al-dhn','us-al-fhp','us-al-guf','us-al-mob','us-fl','us-fl-nw','us-gc','us-ms','us-south','us-southeast']);
     await locate(33.7490,-84.3880);
     assert.ok((await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-ga-atl'));
     assert.match(await page.locator('[data-result]').innerText(), /No MeshMapper code is known/);
@@ -61,7 +71,7 @@ const snapshot = JSON.parse(fs.readFileSync('docs/regions.json'));
     await page.screenshot({path:(process.env.REGION_SCREENSHOT_DIR || '/tmp') + '/region-map-dark.png'});
     assert.deepEqual(errors, []);
 
-    // Overlapping regions include both messaging and MeshMapper codes.
+    // Overlapping regions combine both areas' codes; retired MeshMapper codes stay out.
     const overlap = structuredClone(snapshot);
     overlap.regions.find(r => r.id === 'us-ms-gpt').geometry = overlap.regions.find(r => r.id === 'us-la-msy').geometry;
     await page.route('**/regions.json', route => route.fulfill({json:overlap}));
@@ -71,13 +81,15 @@ const snapshot = JSON.parse(fs.readFileSync('docs/regions.json'));
     const overlapCommands = (await page.locator('[data-result] > ol code').allTextContents()).join(' ');
     assert.ok(overlapCommands.includes('us-la-msy'));
     assert.ok(!overlapCommands.includes('us-la-msy-mm'));
-    assert.ok((await page.locator('[data-result] > ol code').allTextContents()).join(' ').includes('us-ms-gpt-mm'));
+    assert.ok(overlapCommands.includes('region def us-ms-gpt'));
+    assert.ok(overlapCommands.includes('region def us-ms-pb'));
+    assert.ok(!overlapCommands.includes('us-ms-gpt-mm'));
 
     assert.equal(await page.locator('[data-areas]').count(), 0);
     await locate(30.2241,-92.0198);
     const updatedCommands = (await page.locator('[data-result] > ol code').allTextContents()).join(' ');
-    assert.ok(updatedCommands.includes('gc-la-lft-mm'));
-    assert.ok(!updatedCommands.includes('us-la-msy-mm'));
+    assert.ok(updatedCommands.includes('region def us-la-lft'));
+    assert.ok(!updatedCommands.includes('gc-la-lft-mm'));
     const publicData = await (await context.request.get(base + '/regions.json')).json();
     assert.ok(publicData.policy.areas.some(area => area.id === 'us-la-sja'));
 
