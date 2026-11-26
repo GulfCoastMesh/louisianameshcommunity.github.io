@@ -121,6 +121,27 @@ def normalize_snapshot(snapshot, policy):
     return snapshot
 
 
+def validate_rules(policy, known):
+    """Groups and extras must name regions the map has, or the codes would vanish silently."""
+    for rule in policy.get("groups", []) + policy.get("extras", []):
+        when = rule.get("when") or {}
+        label = rule.get("name") or rule.get("note") or "unnamed rule"
+        refs = list(when.get("any", [])) + list(when.get("all", []))
+        if not refs:
+            raise ValueError("Policy rule needs an any or all condition: " + label)
+        codes = rule.get("codes")
+        if not isinstance(codes, list) or not codes or not all(
+                isinstance(code, str) and CODE.fullmatch(code) for code in codes):
+            raise ValueError("Invalid codes in policy rule: " + label)
+        missing = sorted(set(refs) - known)
+        if missing:
+            raise ValueError("Index is missing regions used by policy rule {}: {}".format(
+                label, ", ".join(missing)))
+    for code in policy.get("meshmapperCodes", []):
+        if not isinstance(code, str) or not CODE.fullmatch(code):
+            raise ValueError("Invalid MeshMapper code: " + repr(code))
+
+
 def build_snapshot(fetch=fetch_json):
     policy = json.loads((ROOT / "docs/regions.json").read_text())["policy"]
     manifest = fetch(INDEX_URL)
@@ -146,6 +167,7 @@ def build_snapshot(fetch=fetch_json):
     canonical_seen = {policy.get("aliases", {}).get(code, code) for code in seen}
     if not required <= canonical_seen:
         raise ValueError("Index is missing supported local areas: " + ", ".join(sorted(required - canonical_seen)))
+    validate_rules(policy, canonical_seen | {area["id"] for area in policy["areas"]})
     unique_urls = sorted(set(urls))
     with ThreadPoolExecutor(max_workers=6) as pool:
         sources = dict(zip(unique_urls, pool.map(fetch, unique_urls)))

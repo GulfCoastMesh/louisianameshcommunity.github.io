@@ -10,14 +10,18 @@
       "us-lch": "us-la-lc",
       "us-la-msy-mm": "us-la-msy",
       "gc-la-msy-mm": "us-la-msy",
-      "us-la-lft-mm": "gc-la-lft-mm",
-      "us-gpt": "us-ms-gpt"
+      "us-la-lft-mm": "us-la-lft",
+      "us-gpt": "us-ms-gpt",
+      "gc-la-lft-mm": "us-la-lft",
+      "us-la-lc-mm": "us-la-lc",
+      "us-ms-gpt-mm": "us-ms-gpt",
+      "us-ms-ne": "us-ms-n",
+      "us-ms-ne-mm": "us-ms-n"
     },
     "louisianaCodes": [
       "us",
       "us-southeast",
       "us-south",
-      "us-east",
       "us-gc",
       "us-la"
     ],
@@ -25,7 +29,6 @@
       {
         "id": "us-pns",
         "name": "Pensacola (PNS)",
-        "meshmapper": "gc-fl-pns-mm",
         "required": true,
         "location": {
           "geometry": "https://regions.caboosey.net/regions/us-pns.geojson",
@@ -77,7 +80,6 @@
       {
         "id": "us-la-lft",
         "name": "Lafayette / Acadiana",
-        "meshmapper": "gc-la-lft-mm",
         "louisiana": true,
         "required": true,
         "location": {
@@ -93,7 +95,6 @@
       {
         "id": "us-la-lc",
         "name": "Lake Charles",
-        "meshmapper": "us-la-lc-mm",
         "louisiana": true,
         "location": {
           "geometry": "https://regions.caboosey.net/regions/us-la-lc.geojson",
@@ -108,7 +109,6 @@
       {
         "id": "us-la-mlu",
         "name": "Monroe",
-        "meshmapper": "us-la-mlu-mm",
         "louisiana": true,
         "location": null
       },
@@ -121,7 +121,10 @@
       {
         "id": "us-ms-gpt",
         "name": "Gulfport\u2013Biloxi (GPT)",
-        "meshmapper": "us-ms-gpt-mm",
+        "codes": [
+          "us-ms-gpt",
+          "us-ms-pb"
+        ],
         "required": true,
         "location": {
           "geometry": "https://regions.caboosey.net/regions/us-ms-gpt.geojson",
@@ -133,6 +136,258 @@
           ]
         }
       }
+    ],
+    "groups": [
+      {
+        "name": "Louisiana",
+        "when": {
+          "any": [
+            "us-la"
+          ]
+        },
+        "codes": [
+          "us",
+          "us-la",
+          "us-gc",
+          "us-southeast",
+          "us-south"
+        ]
+      },
+      {
+        "name": "Mississippi",
+        "when": {
+          "any": [
+            "us-ms",
+            "us-ms-gpt"
+          ]
+        },
+        "codes": [
+          "us",
+          "us-southeast",
+          "us-south",
+          "us-gc",
+          "us-ms"
+        ]
+      },
+      {
+        "name": "MSY corridor in Mississippi",
+        "when": {
+          "all": [
+            "us-la-msy",
+            "us-ms"
+          ]
+        },
+        "codes": [
+          "us-la",
+          "us-la-msy",
+          "us-ms",
+          "us-ms-gpt",
+          "us-ms-pb"
+        ]
+      },
+      {
+        "name": "Alabama Gulf Coast",
+        "when": {
+          "any": [
+            "us-al-guf",
+            "us-al-dhn"
+          ]
+        },
+        "codes": [
+          "us",
+          "us-gc",
+          "us-southeast",
+          "us-south",
+          "us-al",
+          "us-al-mob",
+          "us-al-fhp",
+          "us-al-guf",
+          "us-al-dhn",
+          "us-ms",
+          "us-fl",
+          "us-fl-nw"
+        ]
+      },
+      {
+        "name": "Emerald Coast",
+        "when": {
+          "any": [
+            "us-fl-nw",
+            "us-pns",
+            "us-vps",
+            "us-ecp",
+            "us-fl-gulf"
+          ]
+        },
+        "codes": [
+          "us",
+          "us-southeast",
+          "us-south",
+          "us-east",
+          "us-gc",
+          "us-fl",
+          "us-fl-nw"
+        ]
+      }
+    ],
+    "extras": [
+      {
+        "codes": [
+          "us-la-gno"
+        ],
+        "note": "In the New Orleans area",
+        "when": {
+          "any": [
+            "us-la-msy"
+          ],
+          "none": [
+            "us-ms"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-la-btr"
+        ],
+        "note": "In the Baton Rouge area",
+        "when": {
+          "any": [
+            "us-la-msy"
+          ],
+          "none": [
+            "us-ms"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-la-sja"
+        ],
+        "note": "Around St. James Parish",
+        "when": {
+          "any": [
+            "us-la-msy"
+          ],
+          "none": [
+            "us-ms"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-la-mlu"
+        ],
+        "note": "In the Monroe region",
+        "when": {
+          "any": [
+            "us-la"
+          ],
+          "none": [
+            "us-la-msy",
+            "us-la-lft",
+            "us-la-lc"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-la",
+          "us-la-msy"
+        ],
+        "note": "On the I-59 corridor from Picayune north (MSY)",
+        "when": {
+          "any": [
+            "us-ms-gpt"
+          ],
+          "none": [
+            "us-la-msy"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-npa"
+        ],
+        "note": "On NAS Pensacola",
+        "when": {
+          "any": [
+            "us-pns"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-nse"
+        ],
+        "note": "On NAS Whiting Field or its outlying fields",
+        "when": {
+          "any": [
+            "us-pns"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-pam"
+        ],
+        "note": "On Tyndall AFB",
+        "when": {
+          "any": [
+            "us-ecp"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-al"
+        ],
+        "note": "Near the Alabama line, near open water, or 100 ft or higher",
+        "when": {
+          "any": [
+            "us-fl-nw",
+            "us-pns",
+            "us-vps",
+            "us-ecp",
+            "us-fl-gulf"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-ms"
+        ],
+        "note": "100 ft or higher, or near open water",
+        "when": {
+          "any": [
+            "us-fl-nw",
+            "us-pns",
+            "us-vps",
+            "us-ecp",
+            "us-fl-gulf"
+          ]
+        }
+      },
+      {
+        "codes": [
+          "us-ga"
+        ],
+        "note": "Near the Georgia line, or 100 ft or higher",
+        "when": {
+          "any": [
+            "us-fl-nw",
+            "us-pns",
+            "us-vps",
+            "us-ecp",
+            "us-fl-gulf"
+          ]
+        }
+      }
+    ],
+    "meshmapperCodes": [
+      "us-la-msy",
+      "us-ms-gpt",
+      "us-fl-nw",
+      "us-ms-n"
     ],
     "allowedStatuses": [
       "official_local",

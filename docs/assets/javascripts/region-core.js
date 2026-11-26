@@ -37,6 +37,20 @@
     }
     return data.regions.filter(region => contains([lon, lat], data.geometries[region.geometry]));
   }
+  // A rule applies when any listed region is present, every "all" region is present,
+  // and no "none" region is present. A rule without any/all never applies.
+  function whenMatches(when, present) {
+    if (!when || typeof when !== "object") return false;
+    const any = when.any || [], all = when.all || [], none = when.none || [];
+    if (!any.length && !all.length) return false;
+    return (!any.length || any.some(id => present.has(id))) &&
+      all.every(id => present.has(id)) && !none.some(id => present.has(id));
+  }
+  function checkCodes(codes) {
+    for (const code of codes) {
+      if (!/^[a-z0-9][a-z0-9-]{0,30}$/.test(code)) throw new Error("Invalid region code in data; commands unavailable.");
+    }
+  }
   function configure(data, matches, selectedAreas) {
     const canonical = code => (data.policy.aliases || {})[code] || code;
     const approved = matches.filter(region => !region.optional && data.policy.allowedStatuses.includes(region.status));
@@ -46,7 +60,13 @@
       throw new Error("Choose a known local area.");
     }
     const areas = data.policy.areas.filter(area => selected.includes(area.id));
-    if (!approved.length && !areas.length) return {state: "unsupported", areas: [], suggested};
+    if (!approved.length && !areas.length) {
+      return {state: "unsupported", areas: [], suggested, groups: [], extras: [], meshmapper: []};
+    }
+    // Rules see the approved map regions plus the chosen local areas; an unchosen local area is absent.
+    const areaIds = new Set(data.policy.areas.map(area => area.id));
+    const present = new Set([...approved.map(region => canonical(region.id)).filter(id => !areaIds.has(id)), ...selected]);
+    const groups = (data.policy.groups || []).filter(group => whenMatches(group.when, present));
     // Local areas are controlled by the selection; broader geographic scopes remain automatic.
     const localCodes = new Set(data.policy.areas.flatMap(area =>
       [area.id, ...(area.codes || []), area.meshmapper].filter(Boolean)));
@@ -56,18 +76,29 @@
       if (area.meshmapper) codes.push(area.meshmapper);
       if (area.louisiana) codes.push(...data.policy.louisianaCodes);
     }
+    // Each matching group adds its full list from the community sheet. Groups only add codes.
+    for (const group of groups) codes.push(...group.codes);
     const allowed = [...new Set(codes)].sort();
-    if (!allowed.length) return {state: "unsupported", areas, suggested};
-    for (const code of allowed) {
-      if (!/^[a-z0-9][a-z0-9-]{0,30}$/.test(code)) throw new Error("Invalid region code in data; commands unavailable.");
+    if (!allowed.length) return {state: "unsupported", areas, suggested, groups, extras: [], meshmapper: []};
+    checkCodes(allowed);
+    // Extras depend on details the map can't know (a sub-area, a base, antenna height).
+    const extras = (data.policy.extras || []).filter(extra => whenMatches(extra.when, present))
+      .map(extra => ({note: extra.note, codes: extra.codes.filter(code => !allowed.includes(code))}))
+      .filter(extra => extra.codes.length);
+    for (const extra of extras) {
+      checkCodes(extra.codes);
+      extra.commands = extra.codes.map(code => `region def ${code}`);
     }
+    const meshmapperCodes = new Set([...(data.policy.meshmapperCodes || []),
+      ...areas.map(area => area.meshmapper).filter(Boolean)]);
+    const meshmapper = allowed.filter(code => meshmapperCodes.has(code) || code.endsWith("-mm"));
     // One region per command so each can be run and checked individually.
     const commands = allowed.map(code => `region def ${code}`);
     commands.push("region save");
-    return {state: "ready", areas, suggested, allowed, commands,
+    return {state: "ready", areas, suggested, groups, allowed, commands, extras, meshmapper,
       verification: allowed.map(code => `region get ${code}`)};
   }
-  const api = {contains, matchesAt, configure};
+  const api = {contains, matchesAt, configure, whenMatches};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.RegionCore = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);

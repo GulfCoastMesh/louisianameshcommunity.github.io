@@ -10,13 +10,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import sync_regions as sync
 
 POLYGON = {"type": "Polygon", "coordinates": [[[0, 0], [2, 0], [2, 2], [0, 2], [0, 0]]]}
+POLICY = json.loads((sync.ROOT / "docs/regions.json").read_text())["policy"]
+# Map regions that the sheet's groups and extras look for (local areas are listed separately).
+RULE_REGIONS = sorted({ref for rule in POLICY["groups"] + POLICY["extras"]
+                       for key in ("any", "all") for ref in rule["when"].get(key, [])}
+                      - {area["id"] for area in POLICY["areas"]})
 
 
 class SyncTests(unittest.TestCase):
     def setUp(self):
+        # us-pns stays first and us-gpt last: tests below change those two entries.
         self.manifest = {"regions": [
             {"id": code, "name": code, "coordination_status": "official_local", "file": "shared.geojson"}
-            for code in ("us-pns", "us-lft", "us-msy", "us-gpt")
+            for code in ("us-pns", *RULE_REGIONS, "us-lft", "us-msy", "us-gpt")
         ]}
         self.geojson = {"type": "FeatureCollection", "features": [
             {"type": "Feature", "properties": {"id": "untrusted", "coordination_status": "proposed"}, "geometry": POLYGON}
@@ -33,7 +39,8 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(len(result["geometries"]), 1)
         self.assertEqual(result["regions"][0]["id"], "us-pns")
         self.assertEqual(result["regions"][0]["status"], "official_local")
-        self.assertEqual(result["policy"]["areas"][0]["meshmapper"], "gc-fl-pns-mm")
+        # The sheet retired the MeshMapper -mm codes, including Pensacola's.
+        self.assertNotIn("meshmapper", result["policy"]["areas"][0])
 
     def test_normalizes_legacy_ids_and_preserves_local_policy(self):
         result = sync.build_snapshot(self.fetch)
@@ -99,6 +106,40 @@ class SyncTests(unittest.TestCase):
         self.manifest["regions"][0]["coordination_status"] = "proposed"
         with self.assertRaisesRegex(ValueError, "no longer approved"):
             sync.build_snapshot(self.fetch)
+
+    def test_rejects_rule_region_missing_from_index(self):
+        self.manifest["regions"] = [r for r in self.manifest["regions"] if r["id"] != "us-al-dhn"]
+        with self.assertRaisesRegex(ValueError, "missing regions used by policy rule Alabama Gulf Coast: us-al-dhn"):
+            sync.build_snapshot(self.fetch)
+
+    def test_rule_validation(self):
+        known = {"us-la"}
+        good = {"name": "ok", "when": {"any": ["us-la"]}, "codes": ["us"]}
+        sync.validate_rules({"groups": [good], "extras": [], "meshmapperCodes": ["us"]}, known)
+        bad_rules = [
+            ({"name": "no condition", "when": {"none": ["us-la"]}, "codes": ["us"]}, "any or all"),
+            ({"name": "bad code", "when": {"any": ["us-la"]}, "codes": ["us\nregion save"]}, "Invalid codes"),
+            ({"name": "no codes", "when": {"any": ["us-la"]}, "codes": []}, "Invalid codes"),
+            ({"note": "unknown region", "when": {"all": ["us-la", "us-zz"]}, "codes": ["us"]}, "us-zz"),
+        ]
+        for rule, message in bad_rules:
+            with self.subTest(rule=rule), self.assertRaisesRegex(ValueError, message):
+                sync.validate_rules({"groups": [], "extras": [rule]}, known)
+        with self.assertRaisesRegex(ValueError, "MeshMapper"):
+            sync.validate_rules({"meshmapperCodes": ["Bad Code"]}, known)
+
+    def test_folds_retired_meshmapper_and_north_mississippi_ids(self):
+        for code in ("gc-la-lft-mm", "us-la-lc-mm", "us-ms-gpt-mm", "us-ms-ne", "us-ms-ne-mm"):
+            self.manifest["regions"].insert(1, {"id": code, "name": code,
+                "coordination_status": "official_local", "file": code + ".geojson"})
+        result = sync.build_snapshot(self.fetch)
+        ids = [region["id"] for region in result["regions"]]
+        for code in ("us-la-lft", "us-la-lc", "us-ms-gpt", "us-ms-n"):
+            self.assertEqual(ids.count(code), 1, code)
+        for code in ("gc-la-lft-mm", "us-la-lc-mm", "us-ms-gpt-mm", "us-ms-ne", "us-ms-ne-mm"):
+            self.assertNotIn(code, ids)
+        merged = next(r for r in result["regions"] if r["id"] == "us-ms-n")["geometry"]
+        sync.validate_geometry(result["geometries"][merged])
 
     def test_rejects_invalid_geometry(self):
         for geometry in (None, {"type": "Point", "coordinates": [0, 0]},
