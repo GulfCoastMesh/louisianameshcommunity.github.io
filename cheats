@@ -1,0 +1,2 @@
+venv/bin/mkdocs serve --livereload in github site folder
+[example](link.com)
